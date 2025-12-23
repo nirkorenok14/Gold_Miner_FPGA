@@ -1,0 +1,64 @@
+Quartus Prime Archive log --	C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_skeleton.qarlog
+
+Archive:	C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_skeleton.qar
+Date:		Mon Dec 22 20:33:49 2025
+Quartus Prime		17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5.cmp
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5.qip
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5.sip
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5.spd
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5.v
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5/CLK_31P5_0002.qip
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5/CLK_31P5_0002.v
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/CLK_31P5_sim/CLK_31P5.vo
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/DE10_Standard_Audio.sdc
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/GoldMinerGame.qpf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/GoldMinerGame.qsf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/GoldMinerGame_assignment_defaults.qdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/KBDINTF.qxp
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/AUDIO.bdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/JukeBox1.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/Mili_sec_counter.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/SinTable.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/ToneDecoder.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/addr_counter.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/audio_codec_controller/DualSerial2parallel.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/audio_codec_controller/clock_500.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/audio_codec_controller/i2c.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/melody_player_1.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/prescaler.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/TOP_KBD.bdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/keyPad_decoder.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/random.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/simple_up_counter.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/Seg7/SEG7.SV
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/HART_DISPLAY.bdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/HartsMatrixBitMap.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/MyConstant.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/NumbersBitMap.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/Smiley_Block_T.bdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/TOP_GOLD_MINER_GAME.bdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/VGA_Controller.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/back_ground_draw.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/game_controller.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/objects_mux.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/smileyBitMap.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/smiley_move.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/square_Hart_object.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/square_object.sv
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/valX.bsf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/valX.qip
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/valX.v
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/valX_bb.v
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/valX_inst.v
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA_BG.mif
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/assignment_defaults.qdf
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/constraints/DE10_Standard_Audio.sdc
+C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/constraints/pin.tcl
+	======= Total: 53 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
