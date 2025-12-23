@@ -1,0 +1,54 @@
+module	line_object	(	
+ 
+					input	 logic clk,
+					input	 logic resetN,
+					input  logic signed 	[10:0] x_end,
+					input  logic signed 	[10:0] y_end,
+					//  current VGA pixel 
+					input	 logic signed	[10:0] pixelX, 
+					input  logic signed	[10:0] pixelY,
+					
+					output	logic	drawingRequest, // indicates pixel inside the bracket
+					output	logic	[7:0]	 RGBout 
+);
+
+// line start loc
+param int x_start = 300;
+param int y_start = 0;
+param int width = 10;
+param [7:0] line_color = 8'h6d ; //gray
+localparam logic [7:0] TRANSPARENT_ENCODING = 8'hFF ;// bitmap  representation for a transparent pixel 
+
+
+// total boundries
+logic is_x_in_range;
+assign is_x_in_range = (PixelX >= start_x && PixelX <= x_end);
+logic is_y_in_range; 
+assign is_y_in_range = (PixelY >= start_y && PixelY <= y_end);
+
+// check if pixel within line equastion
+int a, b, width_range;
+assign a = (pixelY - y_start) * (x_end - x_start);
+assign b = (y_end - y_start) * (pixelX - x_start);
+assign width_range = width * (x_end - xstart);
+
+logic is_within_line = ((b - width_range) <= a && a <= (b + width_range))
+
+always_ff@(posedge clk or negedge resetN)
+begin
+	if(!resetN) begin
+		RGBout			<=	TRANSPARENT_ENCODING;
+		drawingRequest	<=	1'b0;
+	end
+	else begin
+		RGBout <= TRANSPARENT_ENCODING;
+		drawingRequest <= 1'b0;
+		
+		if (is_x_in_range && is_y_in_range && is_within_line) begin
+			RGBout <= line_color;
+			drawingRequest <= 1'b1;
+		end
+
+endmodule
+	
+	
