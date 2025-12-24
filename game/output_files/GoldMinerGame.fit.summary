@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed Dec 24 16:51:02 2025
+Fitter Status : Successful - Wed Dec 24 21:36:36 2025
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : GoldMinerGame
 Top-level Entity Name : TOP_GOLD_MINER_GAME
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1,411 / 41,910 ( 3 % )
-Total registers : 676
+Logic utilization (in ALMs) : 1,374 / 41,910 ( 3 % )
+Total registers : 679
 Total pins : 63 / 499 ( 13 % )
 Total virtual pins : 0
 Total block memory bits : 2,457,600 / 5,662,720 ( 43 % )

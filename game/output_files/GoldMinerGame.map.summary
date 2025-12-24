@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Dec 24 19:39:31 2025
+Analysis & Synthesis Status : Successful - Wed Dec 24 21:34:21 2025
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : GoldMinerGame
 Top-level Entity Name : TOP_GOLD_MINER_GAME
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 591
+Total registers : 590
 Total pins : 63
 Total virtual pins : 0
 Total block memory bits : 2,457,600
