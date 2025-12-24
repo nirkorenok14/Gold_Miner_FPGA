@@ -1,12 +1,17 @@
-Analysis & Elaboration Status : Successful - Wed Dec 24 01:52:57 2025
+Analysis & Synthesis Status : Successful - Wed Dec 24 19:39:31 2025
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : GoldMinerGame
-Top-level Entity Name : line_object
+Top-level Entity Name : TOP_GOLD_MINER_GAME
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total block memory bits : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
-Total DLLs : N/A until Partition Merge
+Logic utilization (in ALMs) : N/A
+Total registers : 591
+Total pins : 63
+Total virtual pins : 0
+Total block memory bits : 2,457,600
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0

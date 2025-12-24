@@ -19,6 +19,7 @@ module NumbersBitMap	(
 // generating a smily bitmap 
 
 parameter  logic	[7:0] digit_color = 8'hff ; //set the color of the digit 
+parameter int size = 0;
 
 
 bit [0:15] [0:31] [0:15] number_bitmap  = {
@@ -573,10 +574,10 @@ begin
 		drawingRequest <=	1'b0;
 	
 		if (InsideRectangle == 1'b1 )
-//			drawingRequest <= (number_bitmap[digit][offsetY][offsetX]);	//get value from bitmap of original size
-		
-      drawingRequest <= (number_bitmap[digit][offsetY>>1][offsetX>>1]); //uncomment to show bitmap enlarged by two, 
-//							comment the previous line and adjust the square object to double size as the size of a double bitmap	
+			if (size >= 0)
+				drawingRequest <= (number_bitmap[digit][offsetY >> size][offsetX >> size]);	// enlarge
+			else
+				drawingRequest <= (number_bitmap[digit][offsetY << (-size)][offsetX << (-size)]); // down size	
 	end 
 end
 

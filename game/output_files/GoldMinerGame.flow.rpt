@@ -1,5 +1,5 @@
 Flow report for GoldMinerGame
-Wed Dec 24 01:52:57 2025
+Wed Dec 24 19:39:31 2025
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -38,24 +38,29 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Flow Summary                                                              ;
-+-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Wed Dec 24 01:52:57 2025       ;
-; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
-; Revision Name               ; GoldMinerGame                               ;
-; Top-level Entity Name       ; line_object                                 ;
-; Family                      ; Cyclone V                                   ;
-; Device                      ; 5CSXFC6D6F31C6                              ;
-; Timing Models               ; Final                                       ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Wed Dec 24 19:39:31 2025       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; GoldMinerGame                               ;
+; Top-level Entity Name           ; TOP_GOLD_MINER_GAME                         ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSXFC6D6F31C6                              ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 591                                         ;
+; Total pins                      ; 63                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,457,600                                   ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -63,68 +68,68 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/24/2025 01:52:39 ;
+; Start date & time ; 12/24/2025 19:38:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; GoldMinerGame       ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                     ;
-+--------------------------------------------------+----------------------------------------+---------------+-------------+------------+
-; Assignment Name                                  ; Value                                  ; Default Value ; Entity Name ; Section Id ;
-+--------------------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                            ; 79602623454999.176653395823812         ; --            ; --          ; --         ;
-; ENABLE_SIGNALTAP                                 ; On                                     ; --            ; --          ; --         ;
-; FITTER_EFFORT                                    ; Fast Fit                               ; Auto Fit      ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP                           ; 85                                     ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP                           ; 0                                      ; --            ; --          ; --         ;
-; MISC_FILE                                        ; RTL/VGA/valX.bsf                       ; --            ; --          ; --         ;
-; MISC_FILE                                        ; RTL/VGA/valX_inst.v                    ; --            ; --          ; --         ;
-; MISC_FILE                                        ; RTL/VGA/valX_bb.v                      ; --            ; --          ; --         ;
-; MISC_FILE                                        ; CLK_31P5.cmp                           ; --            ; --          ; --         ;
-; MISC_FILE                                        ; CLK_31P5_sim/CLK_31P5.vo               ; --            ; --          ; --         ;
-; NUM_PARALLEL_PROCESSORS                          ; 16                                     ; --            ; --          ; --         ;
-; OPTIMIZE_HOLD_TIMING                             ; Off                                    ; All Paths     ; --          ; --         ;
-; PARTITION_COLOR                                  ; -- (Not supported for targeted family) ; --            ; line_object ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL              ; -- (Not supported for targeted family) ; --            ; line_object ; Top        ;
-; PARTITION_NETLIST_TYPE                           ; -- (Not supported for targeted family) ; --            ; line_object ; Top        ;
-; PHYSICAL_SYNTHESIS_EFFORT                        ; Fast                                   ; Normal        ; --          ; --         ;
-; POWER_BOARD_THERMAL_MODEL                        ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION                    ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY                         ; output_files                           ; --            ; --          ; --         ;
-; SMART_RECOMPILE                                  ; On                                     ; Off           ; --          ; --         ;
-; SPD_FILE                                         ; CLK_31P5.spd                           ; --            ; --          ; --         ;
-; SYNTHESIS_ONLY_QIP                               ; On                                     ; --            ; --          ; --         ;
-; TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS ; Off                                    ; On            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                                 ; line_object                            ; GoldMinerGame ; --          ; --         ;
-; USE_SIGNALTAP_FILE                               ; output_files/stp1.stp                  ; --            ; --          ; --         ;
-+--------------------------------------------------+----------------------------------------+---------------+-------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                             ;
++--------------------------------------------------+----------------------------------------+---------------+---------------------+------------+
+; Assignment Name                                  ; Value                                  ; Default Value ; Entity Name         ; Section Id ;
++--------------------------------------------------+----------------------------------------+---------------+---------------------+------------+
+; COMPILER_SIGNATURE_ID                            ; 79602623454999.176659790126804         ; --            ; --                  ; --         ;
+; ENABLE_SIGNALTAP                                 ; On                                     ; --            ; --                  ; --         ;
+; FITTER_EFFORT                                    ; Fast Fit                               ; Auto Fit      ; --                  ; --         ;
+; MAX_CORE_JUNCTION_TEMP                           ; 85                                     ; --            ; --                  ; --         ;
+; MIN_CORE_JUNCTION_TEMP                           ; 0                                      ; --            ; --                  ; --         ;
+; MISC_FILE                                        ; RTL/VGA/valX.bsf                       ; --            ; --                  ; --         ;
+; MISC_FILE                                        ; RTL/VGA/valX_inst.v                    ; --            ; --                  ; --         ;
+; MISC_FILE                                        ; RTL/VGA/valX_bb.v                      ; --            ; --                  ; --         ;
+; MISC_FILE                                        ; CLK_31P5.cmp                           ; --            ; --                  ; --         ;
+; MISC_FILE                                        ; CLK_31P5_sim/CLK_31P5.vo               ; --            ; --                  ; --         ;
+; NUM_PARALLEL_PROCESSORS                          ; 16                                     ; --            ; --                  ; --         ;
+; OPTIMIZE_HOLD_TIMING                             ; Off                                    ; All Paths     ; --                  ; --         ;
+; PARTITION_COLOR                                  ; -- (Not supported for targeted family) ; --            ; TOP_GOLD_MINER_GAME ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL              ; -- (Not supported for targeted family) ; --            ; TOP_GOLD_MINER_GAME ; Top        ;
+; PARTITION_NETLIST_TYPE                           ; -- (Not supported for targeted family) ; --            ; TOP_GOLD_MINER_GAME ; Top        ;
+; PHYSICAL_SYNTHESIS_EFFORT                        ; Fast                                   ; Normal        ; --                  ; --         ;
+; POWER_BOARD_THERMAL_MODEL                        ; None (CONSERVATIVE)                    ; --            ; --                  ; --         ;
+; POWER_PRESET_COOLING_SOLUTION                    ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --                  ; --         ;
+; PROJECT_OUTPUT_DIRECTORY                         ; output_files                           ; --            ; --                  ; --         ;
+; SMART_RECOMPILE                                  ; On                                     ; Off           ; --                  ; --         ;
+; SPD_FILE                                         ; CLK_31P5.spd                           ; --            ; --                  ; --         ;
+; SYNTHESIS_ONLY_QIP                               ; On                                     ; --            ; --                  ; --         ;
+; TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS ; Off                                    ; On            ; --                  ; --         ;
+; TOP_LEVEL_ENTITY                                 ; TOP_GOLD_MINER_GAME                    ; GoldMinerGame ; --                  ; --         ;
+; USE_SIGNALTAP_FILE                               ; output_files/stp1.stp                  ; --            ; --                  ; --         ;
++--------------------------------------------------+----------------------------------------+---------------+---------------------+------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                          ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:19     ; 1.0                     ; 4800 MB             ; 00:00:52                           ;
-; Total                  ; 00:00:19     ; --                      ; --                  ; 00:00:52                           ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:01:11     ; 1.0                     ; 4978 MB             ; 00:00:59                           ;
+; Total                ; 00:01:11     ; --                      ; --                  ; 00:00:59                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                      ;
-+------------------------+------------------+------------+------------+----------------+
-; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; Nirk             ; Windows 10 ; 10.0       ; x86_64         ;
-+------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; Nirk             ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off GoldMinerGame -c GoldMinerGame --analysis_and_elaboration
+quartus_map --read_settings_files=on --write_settings_files=off GoldMinerGame -c GoldMinerGame
 
 
 

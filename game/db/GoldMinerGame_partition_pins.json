@@ -204,6 +204,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "test_button",
+					"strict" : false
+				},
+				{
 					"name" : "KEY[3]",
 					"strict" : false
 				}
