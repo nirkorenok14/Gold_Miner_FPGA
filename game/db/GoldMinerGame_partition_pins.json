@@ -4,211 +4,311 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "PS2_DAT",
+					"name" : "claw_collision",
 					"strict" : false
 				},
 				{
-					"name" : "PS2_CLK",
+					"name" : "loot_collision",
 					"strict" : false
 				},
 				{
-					"name" : "boardersDrawReq",
+					"name" : "score[1]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[7]",
+					"name" : "score[2]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[6]",
+					"name" : "score[3]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[5]",
+					"name" : "score[4]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[4]",
+					"name" : "score[5]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[3]",
+					"name" : "score[6]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[2]",
+					"name" : "score[7]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[1]",
+					"name" : "score[8]",
 					"strict" : false
 				},
 				{
-					"name" : "BG_RGB[0]",
+					"name" : "score[9]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[6]",
+					"name" : "score[10]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[5]",
+					"name" : "score[11]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[4]",
+					"name" : "score[12]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[3]",
+					"name" : "score[13]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[2]",
+					"name" : "score[14]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[1]",
+					"name" : "score[15]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[0]",
+					"name" : "score[16]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[27]",
+					"name" : "score[17]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[25]",
+					"name" : "score[18]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[24]",
+					"name" : "score[19]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[23]",
+					"name" : "score[20]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[22]",
+					"name" : "score[21]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[21]",
+					"name" : "score[22]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[20]",
+					"name" : "score[23]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[19]",
+					"name" : "score[24]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[18]",
+					"name" : "score[25]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[17]",
+					"name" : "score[26]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[16]",
+					"name" : "score[27]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[15]",
+					"name" : "score[28]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[14]",
+					"name" : "score[29]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[13]",
+					"name" : "score[30]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[12]",
+					"name" : "score[31]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[11]",
+					"name" : "SingleHitPulse",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[10]",
+					"name" : "level_ended",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[9]",
+					"name" : "borders_dr",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[8]",
+					"name" : "loot_dr",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[7]",
+					"name" : "claw_dr",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[6]",
+					"name" : "miner_dr",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[5]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[4]",
+					"name" : "resetN",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[3]",
+					"name" : "timer_endedN",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[2]",
+					"name" : "goal[4]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[1]",
+					"name" : "goal[7]",
 					"strict" : false
 				},
 				{
-					"name" : "OVGA[0]",
+					"name" : "goal[6]",
 					"strict" : false
 				},
 				{
-					"name" : "AUDOUT[7]",
+					"name" : "goal[5]",
 					"strict" : false
 				},
 				{
-					"name" : "AUDOUT[6]",
+					"name" : "goal[1]",
 					"strict" : false
 				},
 				{
-					"name" : "AUDOUT[3]",
+					"name" : "goal[0]",
 					"strict" : false
 				},
 				{
-					"name" : "AUDOUT[2]",
+					"name" : "goal[3]",
 					"strict" : false
 				},
 				{
-					"name" : "AUDOUT[1]",
+					"name" : "goal[2]",
 					"strict" : false
 				},
 				{
-					"name" : "test_button",
+					"name" : "goal[14]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[3]",
+					"name" : "goal[13]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[12]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[11]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[9]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[10]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[8]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[18]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[21]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[20]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[19]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[17]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[16]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[15]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[25]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[28]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[27]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[26]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[24]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[23]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[22]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[30]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[31]",
+					"strict" : false
+				},
+				{
+					"name" : "goal[29]",
+					"strict" : false
+				},
+				{
+					"name" : "is_enter_pressed",
+					"strict" : false
+				},
+				{
+					"name" : "start_level",
+					"strict" : false
+				},
+				{
+					"name" : "loot_type",
 					"strict" : false
 				}
 			]

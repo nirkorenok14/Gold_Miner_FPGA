@@ -1,5 +1,5 @@
 Archive Project report for GoldMinerGame
-Wed Dec 24 19:57:56 2025
+Wed Dec 24 22:27:41 2025
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Wed Dec 24 19:57:56 2025 ;
+; Archive Project Status ; Successful - Wed Dec 24 22:27:41 2025 ;
 ; Revision Name          ; GoldMinerGame                         ;
 ; Top-level Entity Name  ; TOP_GOLD_MINER_GAME                   ;
 ; Family                 ; Cyclone V                             ;
@@ -59,9 +59,9 @@ Info: ----------------------------------------------------------
 Info: Generated report 'GoldMinerGame.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4834 megabytes
-    Info: Processing ended: Wed Dec 24 19:57:56 2025
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Wed Dec 24 22:27:41 2025
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 
@@ -99,6 +99,7 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/AUDIO/SinTable.sv                                      ;
 ; RTL/AUDIO/ToneDecoder.sv                                   ;
 ; RTL/GameAndObjectsLogics/game_controller.sv                ;
+; RTL/GameAndObjectsLogics/level_fsm.sv                      ;
 ; RTL/GameAndObjectsLogics/Smiley_Block_T.bdf                ;
 ; RTL/GameAndObjectsLogics/smiley_move.sv                    ;
 ; RTL/KEYBOARDX/keyPad_decoder.sv                            ;
@@ -107,7 +108,9 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/KEYBOARDX/TOP_KBD.bdf                                  ;
 ; RTL/Seg7/SEG7.SV                                           ;
 ; RTL/Timer/check_timer_end.sv                               ;
+; RTL/Timer/digit_object_mux.sv                              ;
 ; RTL/Timer/Timer_Block.bdf                                  ;
+; RTL/TOP_GOLD_MINER_GAME.bdf                                ;
 ; RTL/Utils/down_counter.sv                                  ;
 ; RTL/Utils/one_sec_counter.sv                               ;
 ; RTL/VGA/back_ground_draw.sv                                ;
