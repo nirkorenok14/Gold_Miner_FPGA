@@ -8,17 +8,16 @@
 // update the hit and collision algoritm - Eyal MAR 2024
 // good practice code - Dudy MAR 2025
 
-module	smiley_move	(	
+module	claw_move	(	
  
 					input	 logic clk,
 					input	 logic resetN,
 					input	 logic startOfFrame,      //short pulse every start of frame 30Hz 
-					input	 logic Y_direction_key,   //move Y Up   
-					input	 logic toggle_x_key,      //toggle X   
-					input  logic collision,         //collision if smiley hits an object
-					input  logic [2:0] HitEdgeCode, 
-					output logic signed 	[10:0] topLeftX, // output the top left corner 
-					output logic signed	[10:0] topLeftY  // can be negative , if the object is partliy outside 
+					input    logic claw_collision,         //collision if smiley hits an object
+					input  	 logic [2:0] HitEdgeCode, 
+					input	 logic speed_move,
+					output   logic signed 	[10:0] topLeftX, // output the top left corner 
+					output   logic signed	[10:0] topLeftY  // can be negative , if the object is partliy outside 
 					
 );
 

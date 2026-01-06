@@ -90,8 +90,8 @@ agreement for further details.
 	(port
 		(pt 256 64)
 		(output)
-		(text "timer_endedN" (rect 0 0 86 19)(font "Intel Clear" (font_size 8)))
-		(text "timer_endedN" (rect 149 59 235 78)(font "Intel Clear" (font_size 8)))
+		(text "timer_ended" (rect 0 0 76 19)(font "Intel Clear" (font_size 8)))
+		(text "timer_ended" (rect 159 59 235 78)(font "Intel Clear" (font_size 8)))
 		(line (pt 256 64)(pt 240 64))
 	)
 	(drawing

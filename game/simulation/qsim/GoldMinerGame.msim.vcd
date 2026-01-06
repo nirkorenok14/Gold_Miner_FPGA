@@ -1,0 +1,317 @@
+$comment
+	File created using the following command:
+		vcd file GoldMinerGame.msim.vcd -direction
+$end
+$date
+	Mon Jan 05 20:49:50 2026
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module level_fsm_vlg_vec_tst $end
+$var reg 1 ! borders_dr $end
+$var reg 1 " claw_dr $end
+$var reg 1 # claw_returned $end
+$var reg 1 $ clk $end
+$var reg 10 % goal [9:0] $end
+$var reg 1 & is_enter_pressed $end
+$var reg 1 ' loot_dr $end
+$var reg 1 ( loot_type $end
+$var reg 1 ) miner_dr $end
+$var reg 1 * resetN $end
+$var reg 1 + startOfFrame $end
+$var reg 1 , start_level $end
+$var reg 1 - timer_ended $end
+$var wire 1 . SingleHitPulse $end
+$var wire 1 / claw_collision $end
+$var wire 1 0 level_ended $end
+$var wire 1 1 loot_collision $end
+$var wire 1 2 move_speed [3] $end
+$var wire 1 3 move_speed [2] $end
+$var wire 1 4 move_speed [1] $end
+$var wire 1 5 move_speed [0] $end
+$var wire 1 6 score [9] $end
+$var wire 1 7 score [8] $end
+$var wire 1 8 score [7] $end
+$var wire 1 9 score [6] $end
+$var wire 1 : score [5] $end
+$var wire 1 ; score [4] $end
+$var wire 1 < score [3] $end
+$var wire 1 = score [2] $end
+$var wire 1 > score [1] $end
+$var wire 1 ? score [0] $end
+
+$scope module i1 $end
+$var wire 1 @ gnd $end
+$var wire 1 A vcc $end
+$var wire 1 B unknown $end
+$var tri1 1 C devclrn $end
+$var tri1 1 D devpor $end
+$var tri1 1 E devoe $end
+$var wire 1 F startOfFrame~input_o $end
+$var wire 1 G clk~input_o $end
+$var wire 1 H claw_dr~input_o $end
+$var wire 1 I borders_dr~input_o $end
+$var wire 1 J miner_dr~input_o $end
+$var wire 1 K loot_dr~input_o $end
+$var wire 1 L inter_claw_collision~0_combout $end
+$var wire 1 M timer_ended~input_o $end
+$var wire 1 N Selector14~2_combout $end
+$var wire 1 O loot_type~input_o $end
+$var wire 1 P collided_loot_type~0_combout $end
+$var wire 1 Q goal[4]~input_o $end
+$var wire 1 R Add0~14 $end
+$var wire 1 S Add0~17_sumout $end
+$var wire 1 T ~GND~combout $end
+$var wire 1 U resetN~input_o $end
+$var wire 1 V claw_returned~input_o $end
+$var wire 1 W score~0_combout $end
+$var wire 1 X start_level~input_o $end
+$var wire 1 Y Add0~18 $end
+$var wire 1 Z Add0~21_sumout $end
+$var wire 1 [ score[6]~reg0_q $end
+$var wire 1 \ Add0~22 $end
+$var wire 1 ] Add0~25_sumout $end
+$var wire 1 ^ score[7]~reg0_q $end
+$var wire 1 _ Add0~26 $end
+$var wire 1 ` Add0~29_sumout $end
+$var wire 1 a score[8]~reg0_q $end
+$var wire 1 b Add0~30 $end
+$var wire 1 c Add0~33_sumout $end
+$var wire 1 d score[9]~reg0_q $end
+$var wire 1 e goal[8]~input_o $end
+$var wire 1 f goal[9]~input_o $end
+$var wire 1 g LessThan0~7_combout $end
+$var wire 1 h is_enter_pressed~input_o $end
+$var wire 1 i Selector14~5_combout $end
+$var wire 1 j Selector14~8_combout $end
+$var wire 1 k SMlevel.IDLE_ST~q $end
+$var wire 1 l Selector3~0_combout $end
+$var wire 1 m score[5]~reg0_q $end
+$var wire 1 n goal[7]~input_o $end
+$var wire 1 o goal[6]~input_o $end
+$var wire 1 p goal[5]~input_o $end
+$var wire 1 q LessThan0~0_combout $end
+$var wire 1 r LessThan0~5_combout $end
+$var wire 1 s LessThan0~6_combout $end
+$var wire 1 t SMlevel.LEVEL_END_ST~0_combout $end
+$var wire 1 u Selector14~6_combout $end
+$var wire 1 v Selector14~7_combout $end
+$var wire 1 w Selector14~3_combout $end
+$var wire 1 x SMlevel.LEVEL_END_ST~1_combout $end
+$var wire 1 y SMlevel.LEVEL_END_ST~2_combout $end
+$var wire 1 z SMlevel.LEVEL_END_ST~q $end
+$var wire 1 { Selector1~0_combout $end
+$var wire 1 | Selector2~0_combout $end
+$var wire 1 } Selector1~1_combout $end
+$var wire 1 ~ Add0~1_sumout $end
+$var wire 1 !! score[1]~reg0_q $end
+$var wire 1 "! Add0~2 $end
+$var wire 1 #! Add0~5_sumout $end
+$var wire 1 $! score[2]~reg0_q $end
+$var wire 1 %! Add0~6 $end
+$var wire 1 &! Add0~9_sumout $end
+$var wire 1 '! score[3]~reg0_q $end
+$var wire 1 (! Add0~10 $end
+$var wire 1 )! Add0~13_sumout $end
+$var wire 1 *! score[4]~reg0_q $end
+$var wire 1 +! goal[1]~input_o $end
+$var wire 1 ,! goal[0]~input_o $end
+$var wire 1 -! LessThan0~1_combout $end
+$var wire 1 .! goal[3]~input_o $end
+$var wire 1 /! goal[2]~input_o $end
+$var wire 1 0! LessThan0~2_combout $end
+$var wire 1 1! LessThan0~3_combout $end
+$var wire 1 2! LessThan0~4_combout $end
+$var wire 1 3! Selector17~0_combout $end
+$var wire 1 4! Selector17~1_combout $end
+$var wire 1 5! SMlevel.GOING_BACK_ST~q $end
+$var wire 1 6! Selector14~4_combout $end
+$var wire 1 7! Selector15~0_combout $end
+$var wire 1 8! Selector15~1_combout $end
+$var wire 1 9! SMlevel.SWING_ST~q $end
+$var wire 1 :! Selector16~0_combout $end
+$var wire 1 ;! Selector16~1_combout $end
+$var wire 1 <! SMlevel.GOING_DOWN_ST~q $end
+$var wire 1 =! SingleHitPulse~0_combout $end
+$var wire 1 >! SingleHitPulse~reg0_q $end
+$var wire 1 ?! claw_collision~0_combout $end
+$var wire 1 @! loot_collision~0_combout $end
+$var wire 1 A! Selector20~0_combout $end
+$var wire 1 B! move_speed[2]~reg0_q $end
+$var wire 1 C! Selector13~0_combout $end
+$var wire 1 D! level_ended~reg0_q $end
+$var wire 1 E! collided_loot_type [2] $end
+$var wire 1 F! collided_loot_type [1] $end
+$var wire 1 G! collided_loot_type [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+x#
+x$
+bx %
+x&
+0'
+x(
+0)
+x*
+x+
+x,
+x-
+0.
+0/
+00
+01
+05
+04
+03
+02
+0?
+0>
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+0@
+1A
+xB
+1C
+1D
+1E
+xF
+xG
+0H
+0I
+0J
+0K
+0L
+xM
+0N
+xO
+0P
+xQ
+0R
+0S
+0T
+xU
+xV
+xW
+xX
+0Y
+0Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+0b
+0c
+0d
+xe
+xf
+xg
+xh
+0i
+xj
+0k
+1l
+0m
+xn
+xo
+xp
+xq
+xr
+xs
+0t
+0u
+0v
+xw
+0x
+0y
+0z
+1{
+0|
+0}
+0~
+0!!
+0"!
+0#!
+0$!
+0%!
+0&!
+0'!
+0(!
+0)!
+0*!
+x+!
+x,!
+x-!
+x.!
+x/!
+x0!
+x1!
+x2!
+03!
+04!
+05!
+06!
+x7!
+x8!
+09!
+0:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+0A!
+0B!
+0C!
+0D!
+0G!
+0F!
+zE!
+$end
+#30000
+1"
+1'
+1H
+1K
+xP
+1L
+#70000
+1)
+1J
+#110000
+0'
+0K
+0P
+#120000
+1!
+1I
+#140000
+0)
+0J
+#160000
+0"
+0H
+0L
+#180000
+0!
+0I
+#1000000

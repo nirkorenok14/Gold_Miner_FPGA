@@ -9,15 +9,16 @@ module	level_fsm	(
 			input logic miner_dr,
 			input logic loot_dr,
 			
-			input logic timer_endedN,
+			input logic timer_ended,
 			input logic is_enter_pressed, // player wants to the claw
-			input logic loot_type, // which loot we are on now
-			input int goal, // check if the player won the level
+			input logic [2:0]loot_type, // which loot we are on now
+			input logic [9:0] goal, // check if the player won the level
+			input logic claw_returned, // the claw reached its' original location
 			
 			output logic claw_collision, // something colliade the claw - border, loot, etc.
 			output logic loot_collision, // claw collide with a loot
-			output logic move_speed, // define the speed of the claw and loot 
-			output int score,
+			output logic [3:0] move_speed, // define the speed of the claw and loot 
+			output logic [9:0] score,
 			output logic SingleHitPulse, // critical code, generating A single pulse in a frame, i.e. only collide once 
 			output logic level_ended
 );
@@ -25,13 +26,18 @@ module	level_fsm	(
 parameter logic [3:0] def_move_speed = 4'd4;
 
 // collisions
-assign claw_collision = (claw_dr && borders_dr && miner_dr && loot_dr);
-assign loot_collision = (claw_dr && loot_dr);
+logic inter_claw_collision;
+logic inter_loot_collision;
+assign inter_claw_collision = inter_loot_collision | (claw_dr && borders_dr) | (claw_dr && miner_dr);
+assign inter_loot_collision = (claw_dr && loot_dr);
+assign claw_collision = inter_claw_collision && SingleHitPulse;
+assign loot_collision = inter_loot_collision && SingleHitPulse;
 
 // loot properties matrix - rows are loot types, colmunes in order are score, move_speed
-logic [0:1][0:1][3:0] loot_data ={
-    {4'd10, 4'd4},
-    {4'd0,  4'd2}
+logic [0:2][0:1][3:0] loot_data ={
+    {4'd0, def_move_speed}, //defualt
+	 {4'd10, 4'd4}, //gold
+    {4'd0,  4'd2} // rock
 };
 
 
@@ -40,8 +46,8 @@ localparam [1:0] move_speed_loc = 4'd1;
 
 // state machine and parameters declaration 
 
-enum logic [2:0] {idle, swing, going_down, going_back, level_end} SMlevel; // state machine
-int collided_loot_type; // save which loot the hook hits
+enum logic [2:0] {IDLE_ST, SWING_ST, GOING_DOWN_ST, HOLD_COLLISION_ST, GOING_BACK_ST, LEVEL_END_ST} SMlevel; // state machine
+logic [2:0] collided_loot_type; // save which loot the hook hits
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -49,67 +55,75 @@ begin
 	if(!resetN)
 	begin 
 		SingleHitPulse <= 1'b0 ;
-		SMlevel <= idle;
+		SMlevel <= IDLE_ST;
 		score <= 0;
 		move_speed <= 4'd0; 
-		collided_loot_type <= -1;
+		collided_loot_type <= 0;
 		level_ended <= 1'b0;
 		
 	end 
 	else begin 
-			// defaults outputs
-			score <= 0;
-			move_speed <= 4'd0;
-			SingleHitPulse <= 1'b0;
-			collided_loot_type <= collided_loot_type;
-			level_ended <= 1'b0;
-		
 			
 			case (SMlevel)
 			// wait for the level to start
-				idle: begin
+				IDLE_ST: begin
+					collided_loot_type <= 0;
+					score <= 0;
+					level_ended <= 1'b0;
 					if (start_level) begin
-						SMlevel <= swing;
-						collided_loot_type <= -1;
+						SMlevel <= SWING_ST;
 					end
 				end
 				
 			// the claw waits for the player, can't collide
-				swing: begin
+				SWING_ST: begin
+					collided_loot_type <= 0;
 					move_speed <= def_move_speed;
-					if (!timer_endedN)
-						SMlevel <= level_end;
+					if (timer_ended)
+						SMlevel <= LEVEL_END_ST;
 					else if (is_enter_pressed)
-						SMlevel <= going_down;
+						SMlevel <= GOING_DOWN_ST;
 				end
 			// the claws search for collision with a loot
-				going_down: begin
+				GOING_DOWN_ST: begin
 					move_speed <= def_move_speed;
-					if (!timer_endedN)
-						SMlevel <= level_end;
-					else if (claw_collision) begin
+					if (timer_ended)
+						SMlevel <= LEVEL_END_ST;
+					else if (inter_claw_collision) begin
+						SMlevel <= HOLD_COLLISION_ST;
 						SingleHitPulse <= 1'b1;
-						SMlevel <= going_back;
-						if(loot_collision)
+						if(inter_loot_collision)
 							collided_loot_type <= loot_type;
+					
+					end							
+				end
+				
+				HOLD_COLLISION_ST: begin
+					if (timer_ended)
+						SMlevel <= LEVEL_END_ST;
+					else if (startOfFrame) begin
+						SingleHitPulse <= 1'b0;
+						SMlevel <= GOING_BACK_ST;
 					end
 				end
+
 			// the claw hit something and going back, either with or without something
-				going_back: begin
-					move_speed <= (collided_loot_type != -1) ? loot_data[collided_loot_type][move_speed_loc] : def_move_speed;
-					if (!timer_endedN)
-						SMlevel <= level_end;
-					if (claw_dr && miner_dr) begin
+				GOING_BACK_ST: begin
+					move_speed <= loot_data[collided_loot_type][move_speed_loc];
+					if (timer_ended)
+						SMlevel <= LEVEL_END_ST;
+					else if (claw_returned) begin
 						score <= score + loot_data[collided_loot_type][score_loc];
-						SMlevel <= swing;
+						SMlevel <= SWING_ST;
 					end
 				end
 			// the timer is run out, waits for another level to begin
-				level_end: begin
+				LEVEL_END_ST: begin
 					level_ended <= 1'b1;
+					move_speed <= 4'd0;
 					// delete - multiple levels the game controller rules all
 					if (is_enter_pressed && score >= goal)
-						SMlevel <= idle;
+						SMlevel <= IDLE_ST;
 				end
 			endcase
 	end 

@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at claw_move.sv(54): always construct contains both blocking and non-blocking assignments File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 54
