@@ -5,8 +5,11 @@ module check_timer_end
 	input  logic resetN, 
 	input	 logic [3:0] ones,
 	input	 logic [3:0] tens,
+	input  logic start_level,
 	
-	output logic timer_endedN
+	output logic enable_timer,
+	output logic timer_ended
+	
    );
 	
 	
@@ -14,16 +17,22 @@ module check_timer_end
    begin
 	
 		// asynchronous reset
-		if ( !resetN )
-			timer_endedN <= 1'b1;
+		if ( !resetN ) begin
+			enable_timer <= 1'b0;
+			timer_ended <= 1'b0;
+		end
 		
-		// executed once every clock 	
+		// executed check if timer reached zero
 		else begin
-			if (ones == 0 && tens == 0) 
-				timer_endedN <= 1'b0;
+			if (start_level)
+				enable_timer <= 1'b1;
+			if (ones == 0 && tens == 0 && !timer_ended) begin
+				enable_timer <= 1'b0;
+				timer_ended <= 1'b1;
+			end
 			else 
-				timer_endedN <= 1'b1;
-		end // else clk
+				timer_ended <= 1'b0;
+		end
 		
 	end // always
 

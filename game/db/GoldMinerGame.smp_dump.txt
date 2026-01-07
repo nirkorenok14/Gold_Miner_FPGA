@@ -6,10 +6,26 @@ SM_Maestro.s_playNote 0 0 1 1
 SM_Maestro.s_gap 0 1 0 1 
 SM_Maestro.s_ended 1 0 0 1 
 
-State Machine - |TOP_GOLD_MINER_GAME|Smiley_Block_T:inst1|smiley_move:inst|SM_Motion
-Name SM_Motion.POSITION_CHANGE_ST SM_Motion.START_OF_FRAME_ST SM_Motion.MOVE_ST SM_Motion.IDLE_ST SM_Motion.POSITION_LIMITS_ST 
+State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst1|SMlevel
+Name SMlevel.LEVEL_END_ST SMlevel.GOING_BACK_ST SMlevel.HOLD_COLLISION_ST SMlevel.GOING_DOWN_ST SMlevel.SWING_ST SMlevel.IDLE_ST 
+SMlevel.IDLE_ST 0 0 0 0 0 0 
+SMlevel.SWING_ST 0 0 0 0 1 1 
+SMlevel.GOING_DOWN_ST 0 0 0 1 0 1 
+SMlevel.HOLD_COLLISION_ST 0 0 1 0 0 1 
+SMlevel.GOING_BACK_ST 0 1 0 0 0 1 
+SMlevel.LEVEL_END_ST 1 0 0 0 0 1 
+
+State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst27|claw_move:inst|prev_SM
+Name prev_SM.SWING_MOVE_ST prev_SM.IDLE_ST prev_SM.COLLISION_ST prev_SM.LINEAR_MOVE_ST 
+prev_SM.IDLE_ST 0 0 0 0 
+prev_SM.SWING_MOVE_ST 1 1 0 0 
+prev_SM.LINEAR_MOVE_ST 0 1 0 1 
+prev_SM.COLLISION_ST 0 1 1 0 
+
+State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst27|claw_move:inst|SM_Motion
+Name SM_Motion.LINEAR_MOVE_ST SM_Motion.WAIT_ST SM_Motion.SWING_MOVE_ST SM_Motion.IDLE_ST SM_Motion.COLLISION_ST 
 SM_Motion.IDLE_ST 0 0 0 0 0 
-SM_Motion.MOVE_ST 0 0 1 1 0 
-SM_Motion.START_OF_FRAME_ST 0 1 0 1 0 
-SM_Motion.POSITION_CHANGE_ST 1 0 0 1 0 
-SM_Motion.POSITION_LIMITS_ST 0 0 0 1 1 
+SM_Motion.SWING_MOVE_ST 0 0 1 1 0 
+SM_Motion.WAIT_ST 0 1 0 1 0 
+SM_Motion.LINEAR_MOVE_ST 1 0 0 1 0 
+SM_Motion.COLLISION_ST 0 0 0 1 1 
