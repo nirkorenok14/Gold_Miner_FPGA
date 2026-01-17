@@ -1,0 +1,106 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Intel and sold by Intel or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "01/16/2026 15:55:34"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          loot_matrix
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module loot_matrix_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg InsideRectangle;
+reg clk;
+reg [2:0] level_num;
+reg loot_collision;
+reg [10:0] offsetX;
+reg [10:0] offsetY;
+reg resetN;
+reg start_level;
+// wires                                               
+wire [2:0] loot_type;
+wire [10:0] offsetX_LSB;
+wire [10:0] offsetY_LSB;
+wire [7:0] total_amount;
+
+// assign statements (if any)                          
+loot_matrix i1 (
+// port map - connection between master ports and signals/registers   
+	.InsideRectangle(InsideRectangle),
+	.clk(clk),
+	.level_num(level_num),
+	.loot_collision(loot_collision),
+	.loot_type(loot_type),
+	.offsetX(offsetX),
+	.offsetX_LSB(offsetX_LSB),
+	.offsetY(offsetY),
+	.offsetY_LSB(offsetY_LSB),
+	.resetN(resetN),
+	.start_level(start_level),
+	.total_amount(total_amount)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #500 1'b1;
+	#500;
+end 
+// level_num[ 2 ]
+initial
+begin
+	level_num[2] = 1'b0;
+end 
+// level_num[ 1 ]
+initial
+begin
+	level_num[1] = 1'b0;
+end 
+// level_num[ 0 ]
+initial
+begin
+	level_num[0] = 1'b1;
+end 
+
+// resetN
+initial
+begin
+	resetN = 1'b0;
+	resetN = #20000 1'b1;
+end 
+
+// start_level
+initial
+begin
+	start_level = 1'b0;
+	start_level = #40000 1'b1;
+	start_level = #10000 1'b0;
+end 
+endmodule
+

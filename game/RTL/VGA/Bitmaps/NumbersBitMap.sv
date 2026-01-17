@@ -16,7 +16,7 @@ module NumbersBitMap	(
 					output	logic				drawingRequest, //output that the pixel should be dispalyed 
 					output	logic	[7:0]		RGBout
 );
-// generating a smily bitmap 
+
 
 parameter  logic	[7:0] digit_color = 8'hff ; //set the color of the digit 
 parameter int size = 0;
