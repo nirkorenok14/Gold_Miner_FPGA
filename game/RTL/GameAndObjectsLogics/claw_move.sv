@@ -168,6 +168,10 @@ begin : fsm_move_proc
 				prev_SM <= LINEAR_MOVE_ST;
 			end
 			
+			default: begin
+					SM_Motion <= IDLE_ST;
+				end
+			
 		endcase  // case 
 
 		

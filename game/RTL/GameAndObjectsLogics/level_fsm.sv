@@ -6,17 +6,17 @@ module	level_fsm	(
 			// drawing requests
 			input	logic	claw_dr,
 			input	logic	borders_dr,
-			input logic miner_dr,
 			input logic loot_dr,
 			
 			input logic timer_ended,
 			input logic is_enter_pressed, // player wants to the claw
 			input logic [2:0]loot_type, // which loot we are on now
-			input logic [9:0] goal, // check if the player won the level
+			input logic [9:0] goal, // the goal the player need to get
 			input logic claw_returned, // the claw reached its' original location
 			
+			// collision are on only once on hit with object on the way down
 			output logic claw_collision, // something colliade the claw - border, loot, etc.
-			output logic loot_collision, // claw collide with a loot
+			output logic loot_collision, // claw collide with a loot 
 			output logic [3:0] move_speed, // define the speed of the claw and loot 
 			output logic [9:0] score,
 			output logic SingleHitPulse, // critical code, generating A single pulse in a frame, i.e. only collide once 
@@ -28,7 +28,7 @@ parameter logic [3:0] def_move_speed = 4'd4;
 // collisions
 logic inter_claw_collision;
 logic inter_loot_collision;
-assign inter_claw_collision = inter_loot_collision | (claw_dr && borders_dr) | (claw_dr && miner_dr);
+assign inter_claw_collision = inter_loot_collision | (claw_dr && borders_dr);
 assign inter_loot_collision = (claw_dr && loot_dr);
 assign claw_collision = inter_claw_collision && SingleHitPulse;
 assign loot_collision = inter_loot_collision && SingleHitPulse;
@@ -48,6 +48,7 @@ localparam [1:0] move_speed_loc = 4'd1;
 
 enum logic [2:0] {IDLE_ST, SWING_ST, GOING_DOWN_ST, HOLD_COLLISION_ST, GOING_BACK_ST, LEVEL_END_ST} SMlevel; // state machine
 logic [2:0] collided_loot_type; // save which loot the hook hits
+logic is_loot_collision;
 
 always_ff@(posedge clk or negedge resetN)
 begin
@@ -58,8 +59,9 @@ begin
 		SMlevel <= IDLE_ST;
 		score <= 0;
 		move_speed <= 4'd0; 
-		collided_loot_type <= 0;
+		collided_loot_type <= 3'd0;
 		level_ended <= 1'b0;
+		is_loot_collision <= 1'b0;
 		
 	end 
 	else begin 
@@ -67,9 +69,10 @@ begin
 			case (SMlevel)
 			// wait for the level to start
 				IDLE_ST: begin
-					collided_loot_type <= 0;
+					collided_loot_type <= 3'd0;
 					score <= 0;
 					level_ended <= 1'b0;
+					is_loot_collision <= 1'b0;
 					if (start_level) begin
 						SMlevel <= SWING_ST;
 					end
@@ -79,6 +82,7 @@ begin
 				SWING_ST: begin
 					collided_loot_type <= 0;
 					move_speed <= def_move_speed;
+					is_loot_collision <= 1'b0;
 					if (timer_ended)
 						SMlevel <= LEVEL_END_ST;
 					else if (is_enter_pressed)
@@ -93,12 +97,17 @@ begin
 						SMlevel <= HOLD_COLLISION_ST;
 						SingleHitPulse <= 1'b1;
 						if(inter_loot_collision)
-							collided_loot_type <= loot_type;
+							is_loot_collision <= 1'b1;
 					
 					end							
 				end
 				
 				HOLD_COLLISION_ST: begin
+					// sample one clock after, because it is changed only in this clk
+					if (is_loot_collision) begin
+						collided_loot_type <= loot_type;
+						is_loot_collision <= 1'b0;
+					end
 					if (timer_ended)
 						SMlevel <= LEVEL_END_ST;
 					else if (startOfFrame) begin
@@ -125,6 +134,11 @@ begin
 					if (is_enter_pressed && score >= goal)
 						SMlevel <= IDLE_ST;
 				end
+				
+				default: begin
+					SMlevel <= IDLE_ST;
+				end
+				
 			endcase
 	end 
 end

@@ -174,57 +174,6 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE output_files/claw_check.stp
 set_location_assignment PIN_AK4 -to test_button
-set_global_assignment -name BDF_FILE RTL/GameAndObjectsLogics/Claw_Block_Top.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/circle_object.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/claw_move.sv
-set_global_assignment -name BDF_FILE RTL/TOP_GOLD_MINER_GAME.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/level_fsm.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/digit_object_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/smileyBitMap.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/NumbersBitMap.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/HartsMatrixBitMap.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/game_controller.sv
-set_global_assignment -name BDF_FILE RTL/Timer/Timer_Block.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/check_timer_end.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/one_sec_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/down_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/line_object.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/square_object.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/back_ground_draw.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/square_Hart_object.sv
-set_global_assignment -name BDF_FILE RTL/VGA/HART_DISPLAY.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/objects_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/VGA_Controller.sv
-set_global_assignment -name QIP_FILE RTL/VGA/valX.qip
-set_global_assignment -name TCL_SCRIPT_FILE constraints/pin.tcl
-set_global_assignment -name BDF_FILE RTL/KEYBOARDX/TOP_KBD.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/keyPad_decoder.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/simple_up_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/random.sv
-set_global_assignment -name QXP_FILE KBDINTF.qxp
-set_global_assignment -name SDC_FILE DE10_Standard_Audio.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/Seg7/SEG7.SV
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/Mili_sec_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/melody_player_1.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/JukeBox1.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/SinTable.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/addr_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/prescaler.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/ToneDecoder.sv
-set_global_assignment -name BDF_FILE RTL/AUDIO/AUDIO.bdf
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/i2c.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/DualSerial2parallel.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/clock_500.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv
-set_global_assignment -name QIP_FILE CLK_31P5.qip
-set_global_assignment -name SIP_FILE CLK_31P5.sip
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/MyConstant.sv
-set_global_assignment -name SIGNALTAP_FILE output_files/stp.stp
-set_global_assignment -name SIGNALTAP_FILE output_files/claw_check.stp
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCDAT
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUDOUT[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUDOUT[1]
@@ -288,6 +237,59 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to yellowLight
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to resetN_pin
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_button
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/MinerBitMap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/LootBitMaps.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/loot_matrix.sv
+set_global_assignment -name BDF_FILE RTL/VGA/loot_display_top.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/claw_bitmap.sv
+set_global_assignment -name BDF_FILE RTL/GameAndObjectsLogics/Claw_Block_Top.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/circle_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/claw_move.sv
+set_global_assignment -name BDF_FILE RTL/TOP_GOLD_MINER_GAME.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/level_fsm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/digit_object_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/NumbersBitMap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/game_controller.sv
+set_global_assignment -name BDF_FILE RTL/Timer/Timer_Block.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/check_timer_end.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/one_sec_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Utils/down_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/line_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/square_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/back_ground_draw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/objects_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/VGA_Controller.sv
+set_global_assignment -name QIP_FILE RTL/VGA/valX.qip
+set_global_assignment -name TCL_SCRIPT_FILE constraints/pin.tcl
+set_global_assignment -name BDF_FILE RTL/KEYBOARDX/TOP_KBD.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/keyPad_decoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/simple_up_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/KEYBOARDX/random.sv
+set_global_assignment -name QXP_FILE KBDINTF.qxp
+set_global_assignment -name SDC_FILE DE10_Standard_Audio.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/Seg7/SEG7.SV
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/Mili_sec_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/melody_player_1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/JukeBox1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/SinTable.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/addr_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/prescaler.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/ToneDecoder.sv
+set_global_assignment -name BDF_FILE RTL/AUDIO/AUDIO.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/i2c.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/DualSerial2parallel.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/clock_500.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv
+set_global_assignment -name QIP_FILE CLK_31P5.qip
+set_global_assignment -name SIP_FILE CLK_31P5.sip
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/MyConstant.sv
+set_global_assignment -name SIGNALTAP_FILE output_files/stp.stp
+set_global_assignment -name SIGNALTAP_FILE output_files/claw_check.stp
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

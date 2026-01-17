@@ -11,7 +11,7 @@ module random
   
 parameter SIZE_BITS = 8;
 parameter unsigned MIN_VAL = 0;  //set the min and max values 
-parameter unsigned MAX_VAL = 255;
+parameter unsigned [SIZE_BITS-1:0] MAX_VAL = '1;
 
 	logic unsigned  [SIZE_BITS-1:0] counter/* synthesis keep = 1 */;
 	logic rise_d /* synthesis keep = 1 */;

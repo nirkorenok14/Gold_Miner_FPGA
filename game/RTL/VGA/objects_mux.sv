@@ -11,21 +11,25 @@ module	objects_mux	(
 //		--------	Clock Input	 	
 					input		logic	clk,
 					input		logic	resetN,
-		   // smiley 
-					input		logic	smileyDrawingRequest, // two set of inputs per unit
-					input		logic	[7:0] smileyRGB, 
-					     
-		  // add the box for numbers here 
-			
-					input 	logic boxDrawingRequest,
-					input		logic [7:0] boxRGB,
+		//dr == drawing_request
+		// by order of importance: claw should above all always
+					input		logic	claw_dr, 
+					input		logic	[7:0] claw_RGB,
+		// line is imortant than loot, but almost immossible from them to overlap
+					input    logic claw_line_dr, 
+					input		logic	[7:0] claw_lineRGB,   
 			  
-		  ////////////////////////
-		  // background 
-					input    logic HartDrawingRequest, 
-					input		logic	[7:0] hartRGB,   
+		// loot should be second
+					input    logic loot_dr, 
+					input		logic	[7:0] lootRGB,   
+		// miner timer and don't overlaps so order not important
+					input 	logic miner_dr,
+					input		logic [7:0] minerRGB,
+					input    logic timer_dr, 
+					input		logic	[7:0] timerRGB,   
+		  // background - always last
 					input		logic	[7:0] backGroundRGB, 
-					input		logic	BGDrawingRequest, 
+					input		logic	BG_dr, 
 					input		logic	[7:0] RGB_MIF, 
 			  
 				   output	logic	[7:0] RGBOut
@@ -38,19 +42,20 @@ begin
 	end
 	
 	else begin
-		if (smileyDrawingRequest == 1'b1 )   
-			RGBOut <= smileyRGB;  //first priority 
-		 
-//--- add logic for box here ------------------------------------------------------		
+		if (claw_dr == 1'b1 )   
+			RGBOut <= claw_RGB;  //first priority	
 
-		else if (boxDrawingRequest == 1'b1)
-			RGBOut <= boxRGB;
+		else if (claw_line_dr == 1'b1)
+			RGBOut <= claw_lineRGB;
+			
+		else if (loot_dr == 1'b1)
+			RGBOut <= lootRGB;
 
-
-//---------------------------------------------------------------------------------		
- 		else if (HartDrawingRequest == 1'b1)
-				RGBOut <= hartRGB;
-		else if (BGDrawingRequest == 1'b1)
+ 		else if (miner_dr == 1'b1)
+				RGBOut <= minerRGB;
+		else if (timer_dr == 1'b1)
+				RGBOut <= timerRGB;
+		else if (BG_dr == 1'b1)
 				RGBOut <= backGroundRGB ;
 		else RGBOut <= RGB_MIF ;// last priority 
 		end ; 

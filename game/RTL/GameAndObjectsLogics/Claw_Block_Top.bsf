@@ -21,7 +21,7 @@ agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 264 208)
+	(rect 16 16 296 208)
 	(text "Claw_Block_Top" (rect 5 0 102 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 171 24 188)(font "Intel Clear" ))
 	(port
@@ -88,25 +88,39 @@ agreement for further details.
 		(line (pt 0 160)(pt 16 160))
 	)
 	(port
-		(pt 248 32)
+		(pt 280 32)
 		(output)
 		(text "claw_dr" (rect 0 0 46 19)(font "Intel Clear" (font_size 8)))
-		(text "claw_dr" (rect 181 27 227 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 248 32)(pt 232 32))
+		(text "claw_dr" (rect 213 27 259 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 32)(pt 264 32))
 	)
 	(port
-		(pt 248 48)
+		(pt 280 48)
 		(output)
 		(text "claw_RGB[7..0]" (rect 0 0 89 19)(font "Intel Clear" (font_size 8)))
-		(text "claw_RGB[7..0]" (rect 138 43 227 62)(font "Intel Clear" (font_size 8)))
-		(line (pt 248 48)(pt 232 48)(line_width 3))
+		(text "claw_RGB[7..0]" (rect 170 43 259 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 48)(pt 264 48)(line_width 3))
 	)
 	(port
-		(pt 248 64)
+		(pt 280 64)
 		(output)
 		(text "claw_returned" (rect 0 0 83 19)(font "Intel Clear" (font_size 8)))
-		(text "claw_returned" (rect 144 59 227 78)(font "Intel Clear" (font_size 8)))
-		(line (pt 248 64)(pt 232 64))
+		(text "claw_returned" (rect 176 59 259 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 64)(pt 264 64))
+	)
+	(port
+		(pt 280 80)
+		(output)
+		(text "claw_line_dr" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_line_dr" (rect 185 75 259 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 80)(pt 264 80))
+	)
+	(port
+		(pt 280 96)
+		(output)
+		(text "claw_line_RGB[7..0]" (rect 0 0 118 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_line_RGB[7..0]" (rect 141 91 259 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 96)(pt 264 96)(line_width 3))
 	)
 	(parameter
 		"initial_x"
@@ -115,11 +129,11 @@ agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"initial_y"
-		"185"
+		"50"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 232 176))
+		(rectangle (rect 16 16 264 176))
 	)
-	(annotation_block (parameter)(rect 264 -64 364 16))
+	(annotation_block (parameter)(rect 296 -64 396 16))
 )

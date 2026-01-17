@@ -1,5 +1,5 @@
 Archive Project report for GoldMinerGame
-Wed Dec 24 22:27:41 2025
+Sat Jan 17 21:27:50 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Wed Dec 24 22:27:41 2025 ;
+; Archive Project Status ; Successful - Sat Jan 17 21:27:50 2026 ;
 ; Revision Name          ; GoldMinerGame                         ;
 ; Top-level Entity Name  ; TOP_GOLD_MINER_GAME                   ;
 ; Family                 ; Cyclone V                             ;
@@ -53,16 +53,16 @@ Info: Archive will store files relative to the closest common parent directory
 Info (13213): Using common directory C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_skeleton_v2.qar'
+Info: Generated archive 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_mvp_v1.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'GoldMinerGame.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Wed Dec 24 22:27:41 2025
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4840 megabytes
+    Info: Processing ended: Sat Jan 17 21:27:50 2026
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------------------------+
@@ -81,11 +81,13 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; CLK_31P5_sim/CLK_31P5.vo                                   ;
 ; constraints/DE10_Standard_Audio.sdc                        ;
 ; constraints/pin.tcl                                        ;
+; db/claw_check_auto_stripped.stp                            ;
 ; DE10_Standard_Audio.sdc                                    ;
 ; GoldMinerGame.qpf                                          ;
 ; GoldMinerGame.qsf                                          ;
 ; GoldMinerGame_assignment_defaults.qdf                      ;
 ; KBDINTF.qxp                                                ;
+; output_files/claw_check.stp                                ;
 ; RTL/AUDIO/addr_counter.sv                                  ;
 ; RTL/AUDIO/AUDIO.bdf                                        ;
 ; RTL/AUDIO/audio_codec_controller/audio_codec_controller.sv ;
@@ -98,10 +100,11 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/AUDIO/prescaler.sv                                     ;
 ; RTL/AUDIO/SinTable.sv                                      ;
 ; RTL/AUDIO/ToneDecoder.sv                                   ;
+; RTL/GameAndObjectsLogics/Claw_Block_Top.bdf                ;
+; RTL/GameAndObjectsLogics/claw_move.sv                      ;
 ; RTL/GameAndObjectsLogics/game_controller.sv                ;
 ; RTL/GameAndObjectsLogics/level_fsm.sv                      ;
-; RTL/GameAndObjectsLogics/Smiley_Block_T.bdf                ;
-; RTL/GameAndObjectsLogics/smiley_move.sv                    ;
+; RTL/GameAndObjectsLogics/loot_matrix.sv                    ;
 ; RTL/KEYBOARDX/keyPad_decoder.sv                            ;
 ; RTL/KEYBOARDX/random.sv                                    ;
 ; RTL/KEYBOARDX/simple_up_counter.sv                         ;
@@ -111,17 +114,19 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/Timer/digit_object_mux.sv                              ;
 ; RTL/Timer/Timer_Block.bdf                                  ;
 ; RTL/TOP_GOLD_MINER_GAME.bdf                                ;
+; RTL/Utils/circle_object.sv                                 ;
 ; RTL/Utils/down_counter.sv                                  ;
 ; RTL/Utils/one_sec_counter.sv                               ;
 ; RTL/VGA/back_ground_draw.sv                                ;
-; RTL/VGA/Bitmaps/HartsMatrixBitMap.sv                       ;
+; RTL/VGA/Bitmaps/claw_bitmap.sv                             ;
+; rtl/vga/bitmaps/gm_background.mif                          ;
+; RTL/VGA/Bitmaps/LootBitMaps.sv                             ;
+; RTL/VGA/Bitmaps/MinerBitMap.sv                             ;
 ; RTL/VGA/Bitmaps/NumbersBitMap.sv                           ;
-; RTL/VGA/Bitmaps/smileyBitMap.sv                            ;
-; RTL/VGA/HART_DISPLAY.bdf                                   ;
 ; RTL/VGA/line_object.sv                                     ;
+; RTL/VGA/loot_display_top.bdf                               ;
 ; RTL/VGA/MyConstant.sv                                      ;
 ; RTL/VGA/objects_mux.sv                                     ;
-; RTL/VGA/square_Hart_object.sv                              ;
 ; RTL/VGA/square_object.sv                                   ;
 ; RTL/VGA/valX.bsf                                           ;
 ; RTL/VGA/valX.qip                                           ;
@@ -129,7 +134,11 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/VGA/valX_bb.v                                          ;
 ; RTL/VGA/valX_inst.v                                        ;
 ; RTL/VGA/VGA_Controller.sv                                  ;
-; rtl/vga_bg.mif                                             ;
+; Waveform.vwf                                               ;
+; Waveform1.vwf                                              ;
+; Waveform2.vwf                                              ;
+; Waveform3.vwf                                              ;
+; Waveform4.vwf                                              ;
 +------------------------------------------------------------+
 
 
