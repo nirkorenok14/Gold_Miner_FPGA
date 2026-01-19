@@ -139,16 +139,9 @@ agreement for further details.
 	(port
 		(pt 248 96)
 		(output)
-		(text "SingleHitPulse" (rect 0 0 54 12)(font "Arial" ))
-		(text "SingleHitPulse" (rect 173 91 227 103)(font "Arial" ))
-		(line (pt 248 96)(pt 232 96)(line_width 1))
-	)
-	(port
-		(pt 248 112)
-		(output)
 		(text "level_ended" (rect 0 0 47 12)(font "Arial" ))
-		(text "level_ended" (rect 180 107 227 119)(font "Arial" ))
-		(line (pt 248 112)(pt 232 112)(line_width 1))
+		(text "level_ended" (rect 180 91 227 103)(font "Arial" ))
+		(line (pt 248 96)(pt 232 96)(line_width 1))
 	)
 	(parameter
 		"def_move_speed"
