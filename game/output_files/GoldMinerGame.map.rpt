@@ -1,5 +1,5 @@
 Analysis & Synthesis report for GoldMinerGame
-Tue Jan 20 14:04:20 2026
+Tue Jan 20 14:55:39 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -18,7 +18,7 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  10. Analysis & Synthesis IP Cores Summary
  11. State Machine - |TOP_GOLD_MINER_GAME|melody_player_1:inst13|SM_Maestro
  12. State Machine - |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_SM
- 13. State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst30|SMlevel
+ 13. State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst11|SMlevel
  14. State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|prev_SM
  15. State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|SM_Motion
  16. Registers Protected by Synthesis
@@ -36,7 +36,7 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  28. Parameter Settings for User Entity Instance: Claw_Block_Top:inst32|claw_move:inst
  29. Parameter Settings for User Entity Instance: Claw_Block_Top:inst32|line_object:inst8
  30. Parameter Settings for User Entity Instance: Claw_Block_Top:inst32|MyConstant:inst9
- 31. Parameter Settings for User Entity Instance: level_fsm:inst30
+ 31. Parameter Settings for User Entity Instance: level_fsm:inst11
  32. Parameter Settings for User Entity Instance: loot_display_top:inst14|LootBitMaps:inst4
  33. Parameter Settings for User Entity Instance: loot_display_top:inst14|square_object:inst11
  34. Parameter Settings for User Entity Instance: loot_display_top:inst14|loot_matrix:inst
@@ -105,13 +105,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Jan 20 14:04:20 2026       ;
+; Analysis & Synthesis Status     ; Successful - Tue Jan 20 14:55:39 2026       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; GoldMinerGame                               ;
 ; Top-level Entity Name           ; TOP_GOLD_MINER_GAME                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 982                                         ;
+; Total registers                 ; 1002                                        ;
 ; Total pins                      ; 63                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,457,600                                   ;
@@ -226,14 +226,15 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
 ;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processor 9            ;   0.0%      ;
+;     Processors 10-16       ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -300,7 +301,7 @@ agreement for further details.
 ; altram.inc                                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altram.inc                                                                    ;          ;
 ; altdpram.inc                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altdpram.inc                                                                  ;          ;
 ; db/altsyncram_1s81.tdf                                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/db/altsyncram_1s81.tdf                                     ;          ;
-; RTL/VGA/Bitmaps/gm_background.mif                          ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/Bitmaps/gm_background.mif                          ;          ;
+; rtl/vga/bitmaps/gm_background.mif                          ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/rtl/vga/bitmaps/gm_background.mif                          ;          ;
 ; db/decode_s2a.tdf                                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/db/decode_s2a.tdf                                          ;          ;
 ; db/mux_jhb.tdf                                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/db/mux_jhb.tdf                                             ;          ;
 ; lpm_divide.tdf                                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_divide.tdf                                                                ;          ;
@@ -324,16 +325,16 @@ agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 3709                                                                              ;
+; Estimate of Logic utilization (ALMs needed) ; 3588                                                                              ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 5218                                                                              ;
-;     -- 7 input functions                    ; 202                                                                               ;
-;     -- 6 input functions                    ; 1950                                                                              ;
-;     -- 5 input functions                    ; 659                                                                               ;
-;     -- 4 input functions                    ; 798                                                                               ;
-;     -- <=3 input functions                  ; 1609                                                                              ;
+; Combinational ALUT usage for logic          ; 5225                                                                              ;
+;     -- 7 input functions                    ; 203                                                                               ;
+;     -- 6 input functions                    ; 1697                                                                              ;
+;     -- 5 input functions                    ; 649                                                                               ;
+;     -- 4 input functions                    ; 1061                                                                              ;
+;     -- <=3 input functions                  ; 1615                                                                              ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 982                                                                               ;
+; Dedicated logic registers                   ; 1002                                                                              ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 63                                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
@@ -345,9 +346,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 1337                                                                              ;
-; Total fan-out                               ; 31290                                                                             ;
-; Average fan-out                             ; 4.71                                                                              ;
+; Maximum fan-out                             ; 1357                                                                              ;
+; Total fan-out                               ; 30832                                                                             ;
+; Average fan-out                             ; 4.62                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -356,7 +357,7 @@ agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |TOP_GOLD_MINER_GAME                                    ; 5218 (0)            ; 982 (0)                   ; 2457600           ; 10         ; 63   ; 0            ; |TOP_GOLD_MINER_GAME                                                                                                                        ; TOP_GOLD_MINER_GAME    ; work         ;
+; |TOP_GOLD_MINER_GAME                                    ; 5225 (0)            ; 1002 (0)                  ; 2457600           ; 10         ; 63   ; 0            ; |TOP_GOLD_MINER_GAME                                                                                                                        ; TOP_GOLD_MINER_GAME    ; work         ;
 ;    |AUDIO:inst18|                                       ; 222 (0)             ; 142 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|AUDIO:inst18                                                                                                           ; AUDIO                  ; work         ;
 ;       |ToneDecoder:inst4|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|ToneDecoder:inst4                                                                                         ; ToneDecoder            ; work         ;
 ;       |addr_counter:inst9|                              ; 10 (10)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|addr_counter:inst9                                                                                        ; addr_counter           ; work         ;
@@ -369,13 +370,13 @@ agreement for further details.
 ;    |CLK_31P5:inst7|                                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|CLK_31P5:inst7                                                                                                         ; CLK_31P5               ; CLK_31P5     ;
 ;       |CLK_31P5_0002:clk_31p5_inst|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst                                                                             ; CLK_31P5_0002          ; CLK_31P5     ;
 ;          |altera_pll:altera_pll_i|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|CLK_31P5:inst7|CLK_31P5_0002:clk_31p5_inst|altera_pll:altera_pll_i                                                     ; altera_pll             ; work         ;
-;    |Claw_Block_Top:inst32|                              ; 600 (0)             ; 76 (0)                    ; 0                 ; 9          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32                                                                                                  ; Claw_Block_Top         ; work         ;
-;       |claw_bitmap:inst1|                               ; 93 (93)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_bitmap:inst1                                                                                ; claw_bitmap            ; work         ;
-;       |claw_move:inst|                                  ; 168 (137)           ; 58 (58)                   ; 0                 ; 5          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst                                                                                   ; claw_move              ; work         ;
+;    |Claw_Block_Top:inst32|                              ; 601 (0)             ; 76 (0)                    ; 0                 ; 9          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32                                                                                                  ; Claw_Block_Top         ; work         ;
+;       |claw_bitmap:inst1|                               ; 91 (91)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_bitmap:inst1                                                                                ; claw_bitmap            ; work         ;
+;       |claw_move:inst|                                  ; 171 (140)           ; 58 (58)                   ; 0                 ; 5          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst                                                                                   ; claw_move              ; work         ;
 ;          |circle_object:circle_calc|                    ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|circle_object:circle_calc                                                         ; circle_object          ; work         ;
 ;       |line_object:inst8|                               ; 297 (297)           ; 1 (1)                     ; 0                 ; 4          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|line_object:inst8                                                                                ; line_object            ; work         ;
 ;       |square_object:inst6|                             ; 42 (42)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|square_object:inst6                                                                              ; square_object          ; work         ;
-;    |MinerBitMap:inst17|                                 ; 1702 (1702)         ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|MinerBitMap:inst17                                                                                                     ; MinerBitMap            ; work         ;
+;    |MinerBitMap:inst17|                                 ; 1701 (1701)         ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|MinerBitMap:inst17                                                                                                     ; MinerBitMap            ; work         ;
 ;    |SEG7:inst10|                                        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|SEG7:inst10                                                                                                            ; SEG7                   ; work         ;
 ;    |TOP_KBD:inst16|                                     ; 44 (0)              ; 53 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|TOP_KBD:inst16                                                                                                         ; TOP_KBD                ; work         ;
 ;       |KBDINTF:inst|                                    ; 40 (0)              ; 52 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|TOP_KBD:inst16|KBDINTF:inst                                                                                            ; KBDINTF                ; work         ;
@@ -394,10 +395,10 @@ agreement for further details.
 ;       |square_object:tens_object|                       ; 11 (11)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|Timer_Block:inst25|square_object:tens_object                                                                           ; square_object          ; work         ;
 ;    |VGA_Controller:inst|                                ; 101 (101)           ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|VGA_Controller:inst                                                                                                    ; VGA_Controller         ; work         ;
 ;    |back_ground_draw:inst4|                             ; 12 (12)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|back_ground_draw:inst4                                                                                                 ; back_ground_draw       ; work         ;
-;    |level_fsm:inst30|                                   ; 39 (39)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|level_fsm:inst30                                                                                                       ; level_fsm              ; work         ;
-;    |loot_display_top:inst14|                            ; 1096 (0)            ; 500 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14                                                                                                ; loot_display_top       ; work         ;
+;    |level_fsm:inst11|                                   ; 39 (39)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|level_fsm:inst11                                                                                                       ; level_fsm              ; work         ;
+;    |loot_display_top:inst14|                            ; 1102 (0)            ; 520 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14                                                                                                ; loot_display_top       ; work         ;
 ;       |LootBitMaps:inst4|                               ; 351 (351)           ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|LootBitMaps:inst4                                                                              ; LootBitMaps            ; work         ;
-;       |loot_matrix:inst|                                ; 735 (698)           ; 473 (440)                 ; 0                 ; 1          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst                                                                               ; loot_matrix            ; work         ;
+;       |loot_matrix:inst|                                ; 741 (704)           ; 493 (460)                 ; 0                 ; 1          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst                                                                               ; loot_matrix            ; work         ;
 ;          |random:random1|                               ; 37 (37)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|random:random1                                                                ; random                 ; work         ;
 ;       |square_object:inst11|                            ; 10 (10)             ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|square_object:inst11                                                                           ; square_object          ; work         ;
 ;    |lpm_rom:inst5|                                      ; 55 (0)              ; 6 (0)                     ; 2457600           ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|lpm_rom:inst5                                                                                                          ; lpm_rom                ; work         ;
@@ -410,7 +411,7 @@ agreement for further details.
 ;       |JukeBox1:JukeBox1|                               ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|JukeBox1:JukeBox1                                                                               ; JukeBox1               ; work         ;
 ;       |Mili_sec_counter:mili_sec_counter_inst|          ; 39 (39)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|Mili_sec_counter:mili_sec_counter_inst                                                          ; Mili_sec_counter       ; work         ;
 ;    |objects_mux:inst29|                                 ; 134 (134)           ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|objects_mux:inst29                                                                                                     ; objects_mux            ; work         ;
-;    |score_board_draw:inst1|                             ; 931 (228)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1                                                                                                 ; score_board_draw       ; work         ;
+;    |score_board_draw:inst1|                             ; 932 (229)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1                                                                                                 ; score_board_draw       ; work         ;
 ;       |lpm_divide:Div4|                                 ; 114 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1|lpm_divide:Div4                                                                                 ; lpm_divide             ; work         ;
 ;          |lpm_divide_vcm:auto_generated|                ; 114 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1|lpm_divide:Div4|lpm_divide_vcm:auto_generated                                                   ; lpm_divide_vcm         ; work         ;
 ;             |sign_div_unsign_5nh:divider|               ; 114 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1|lpm_divide:Div4|lpm_divide_vcm:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh    ; work         ;
@@ -508,7 +509,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst30|SMlevel                                                                                                     ;
+; State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst11|SMlevel                                                                                                     ;
 +---------------------------+----------------------+-----------------------+---------------------------+-----------------------+------------------+-----------------+
 ; Name                      ; SMlevel.LEVEL_END_ST ; SMlevel.GOING_BACK_ST ; SMlevel.HOLD_COLLISION_ST ; SMlevel.GOING_DOWN_ST ; SMlevel.SWING_ST ; SMlevel.IDLE_ST ;
 +---------------------------+----------------------+-----------------------+---------------------------+-----------------------+------------------+-----------------+
@@ -755,6 +756,51 @@ Encoding Type:  One-Hot
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][13]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][14]  ; Stuck at GND due to stuck port data_in                                   ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[10][15]  ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[1][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[2][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][3]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[1][3]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][10]                      ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][9]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][8]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][7]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][6]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][5]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][4]                       ; Stuck at GND due to stuck port data_in                                   ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[2][3]                       ; Stuck at GND due to stuck port data_in                                   ;
 ; Claw_Block_Top:inst32|line_object:inst8|RGBout[0,2,3,5,6]                      ; Stuck at VCC due to stuck port data_in                                   ;
 ; back_ground_draw:inst4|blueBits[0,1]                                           ; Stuck at VCC due to stuck port data_in                                   ;
 ; back_ground_draw:inst4|BG_RGB[6,7]                                             ; Stuck at VCC due to stuck port data_in                                   ;
@@ -769,30 +815,31 @@ Encoding Type:  One-Hot
 ; back_ground_draw:inst4|greenBits[0,1]                                          ; Merged with back_ground_draw:inst4|greenBits[2]                          ;
 ; back_ground_draw:inst4|BG_RGB[3,4]                                             ; Merged with back_ground_draw:inst4|BG_RGB[5]                             ;
 ; back_ground_draw:inst4|BG_RGB[0,1]                                             ; Merged with back_ground_draw:inst4|BG_RGB[2]                             ;
-; level_fsm:inst30|move_speed[3]                                                 ; Merged with level_fsm:inst30|move_speed[0]                               ;
+; level_fsm:inst11|loot_collision                                                ; Merged with level_fsm:inst11|claw_collision                              ;
+; level_fsm:inst11|move_speed[3]                                                 ; Merged with level_fsm:inst11|move_speed[0]                               ;
 ; Claw_Block_Top:inst32|claw_move:inst|init_speed[3]                             ; Merged with Claw_Block_Top:inst32|claw_move:inst|init_speed[0]           ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[7,8,14,15]            ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13] ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[3,5]                  ; Merged with AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[2]  ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                   ; Stuck at GND due to stuck port data_in                                   ;
-; level_fsm:inst30|score[0]                                                      ; Stuck at GND due to stuck port data_in                                   ;
-; level_fsm:inst30|move_speed[0]                                                 ; Stuck at GND due to stuck port data_in                                   ;
-; level_fsm:inst30|sound_request[3]                                              ; Stuck at GND due to stuck port data_in                                   ;
+; level_fsm:inst11|score[0]                                                      ; Stuck at GND due to stuck port data_in                                   ;
+; level_fsm:inst11|move_speed[0]                                                 ; Stuck at GND due to stuck port data_in                                   ;
+; level_fsm:inst11|sound_request[3]                                              ; Stuck at GND due to stuck port data_in                                   ;
 ; Claw_Block_Top:inst32|claw_move:inst|init_speed[0]                             ; Stuck at GND due to stuck port data_in                                   ;
 ; melody_player_1:inst13|SM_Maestro~8                                            ; Lost fanout                                                              ;
 ; melody_player_1:inst13|SM_Maestro~9                                            ; Lost fanout                                                              ;
 ; loot_display_top:inst14|loot_matrix:inst|loot_SM~10                            ; Lost fanout                                                              ;
 ; loot_display_top:inst14|loot_matrix:inst|loot_SM~11                            ; Lost fanout                                                              ;
 ; loot_display_top:inst14|loot_matrix:inst|loot_SM~12                            ; Lost fanout                                                              ;
-; level_fsm:inst30|SMlevel~10                                                    ; Lost fanout                                                              ;
-; level_fsm:inst30|SMlevel~11                                                    ; Lost fanout                                                              ;
-; level_fsm:inst30|SMlevel~12                                                    ; Lost fanout                                                              ;
+; level_fsm:inst11|SMlevel~10                                                    ; Lost fanout                                                              ;
+; level_fsm:inst11|SMlevel~11                                                    ; Lost fanout                                                              ;
+; level_fsm:inst11|SMlevel~12                                                    ; Lost fanout                                                              ;
 ; Claw_Block_Top:inst32|claw_move:inst|prev_SM~8                                 ; Lost fanout                                                              ;
 ; Claw_Block_Top:inst32|claw_move:inst|prev_SM~11                                ; Lost fanout                                                              ;
 ; Claw_Block_Top:inst32|claw_move:inst|SM_Motion~9                               ; Lost fanout                                                              ;
 ; Claw_Block_Top:inst32|claw_move:inst|SM_Motion~10                              ; Lost fanout                                                              ;
 ; Claw_Block_Top:inst32|claw_move:inst|SM_Motion~12                              ; Lost fanout                                                              ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4,5] ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 236                                        ;                                                                          ;
+; Total Number of Removed Registers = 282                                        ;                                                                          ;
 +--------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
@@ -801,15 +848,45 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------+
 ; Register name                                                                ; Reason for Removal        ; Registers Removed due to This Register                                       ;
 +------------------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------+
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][10]                    ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][10],                   ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][10]                    ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][9]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][9],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][9]                     ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][8]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][8],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][8]                     ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][7]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][7],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][7]                     ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][6]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][6],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][6]                     ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][5]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][5],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][5]                     ;
+; loot_display_top:inst14|loot_matrix:inst|x_history[0][4]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|x_history[1][4],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|x_history[2][4]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][10]                    ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][10],                   ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][10]                    ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][9]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][9],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][9]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][8]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][8],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][8]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][7]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][7],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][7]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][6]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][6],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][6]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][5]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][5],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][5]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][4]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][4],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][4]                     ;
+; loot_display_top:inst14|loot_matrix:inst|y_history[0][3]                     ; Stuck at GND              ; loot_display_top:inst14|loot_matrix:inst|y_history[1][3],                    ;
+;                                                                              ; due to stuck port data_in ; loot_display_top:inst14|loot_matrix:inst|y_history[2][3]                     ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|ROM[0][13] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD[13]                 ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
 ; back_ground_draw:inst4|blueBits[1]                                           ; Stuck at VCC              ; back_ground_draw:inst4|BG_RGB[7]                                             ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
 ; back_ground_draw:inst4|blueBits[0]                                           ; Stuck at VCC              ; back_ground_draw:inst4|BG_RGB[6]                                             ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
-; level_fsm:inst30|score[0]                                                    ; Stuck at GND              ; level_fsm:inst30|sound_request[3]                                            ;
+; level_fsm:inst11|score[0]                                                    ; Stuck at GND              ; level_fsm:inst11|sound_request[3]                                            ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
-; level_fsm:inst30|move_speed[0]                                               ; Stuck at GND              ; Claw_Block_Top:inst32|claw_move:inst|init_speed[0]                           ;
+; level_fsm:inst11|move_speed[0]                                               ; Stuck at GND              ; Claw_Block_Top:inst32|claw_move:inst|init_speed[0]                           ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
 ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[5] ; Stuck at GND              ; AUDIO:inst18|audio_codec_controller:inst|CLOCK_500:CLOCK_500_inst|address[4] ;
 ;                                                                              ; due to stuck port data_in ;                                                                              ;
@@ -821,12 +898,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 982   ;
+; Total registers                              ; 1002  ;
 ; Number of registers using Synchronous Clear  ; 253   ;
 ; Number of registers using Synchronous Load   ; 9     ;
-; Number of registers using Asynchronous Clear ; 878   ;
+; Number of registers using Asynchronous Clear ; 897   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 682   ;
+; Number of registers using Clock Enable       ; 683   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -846,10 +923,10 @@ Encoding Type:  One-Hot
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_0     ; 2       ;
 ; AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|I2C_clk_en    ; 2       ;
 ; loot_display_top:inst14|loot_matrix:inst|loot_type_tmp[0]           ; 13      ;
+; loot_display_top:inst14|loot_matrix:inst|row_ptr[2]                 ; 22      ;
+; loot_display_top:inst14|loot_matrix:inst|row_ptr[3]                 ; 21      ;
 ; loot_display_top:inst14|loot_matrix:inst|row_ptr[1]                 ; 20      ;
 ; loot_display_top:inst14|loot_matrix:inst|row_ptr[0]                 ; 21      ;
-; loot_display_top:inst14|loot_matrix:inst|row_ptr[3]                 ; 21      ;
-; loot_display_top:inst14|loot_matrix:inst|row_ptr[2]                 ; 22      ;
 ; loot_display_top:inst14|loot_matrix:inst|col_ptr[1]                 ; 72      ;
 ; loot_display_top:inst14|loot_matrix:inst|col_ptr[0]                 ; 73      ;
 ; loot_display_top:inst14|loot_matrix:inst|loot_amounts_counter[2][5] ; 2       ;
@@ -871,7 +948,7 @@ Encoding Type:  One-Hot
 ; loot_display_top:inst14|loot_matrix:inst|random:random1|dout[3]     ; 3       ;
 ; loot_display_top:inst14|loot_matrix:inst|random:random1|dout[11]    ; 3       ;
 ; loot_display_top:inst14|loot_matrix:inst|random:random1|dout[7]     ; 3       ;
-; Claw_Block_Top:inst32|claw_move:inst|down_dir                       ; 11      ;
+; Claw_Block_Top:inst32|claw_move:inst|down_dir                       ; 14      ;
 ; AUDIO:inst18|sintable:inst1|volume_level[1]                         ; 11      ;
 ; AUDIO:inst18|sintable:inst1|volume_level[0]                         ; 12      ;
 ; AUDIO:inst18|sintable:inst1|volume_d                                ; 1       ;
@@ -885,174 +962,174 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[0]                                             ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[14]          ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[23]            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Timer_Block:inst25|down_counter:first_dig|count[1]                                                              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|i2c:i2c_inst|SD_COUNTER[5]                                             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[15]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|serial_cnt[8]             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Timer_Block:inst25|down_counter:first_dig|count[0]                                                              ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Timer_Block:inst25|down_counter:second_dig|count[0]                                                             ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|alpha[3]                                                                   ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[9]           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|line_length[2]                                                             ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][15][0]                                               ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|alpha[2]                                                                   ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|AUDIO:inst18|audio_codec_controller:inst|DualSerial2parallel:DualSerial2parallel_inst|DACdata_fifo[6]           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|line_length[4]                                                             ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][15][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][15][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][15][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][15][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][15][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][15][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][15][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][15][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][15][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][15][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][15][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][15][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][14][2]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][14][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][14][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][14][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][14][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][14][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][14][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][14][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][14][0]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][14][0]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][14][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][13][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][13][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][13][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][13][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][13][0]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][13][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][12][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][12][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][12][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][12][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][13][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][13][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][13][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][13][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][12][1]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][12][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][12][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][12][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][12][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][11][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][11][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][11][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][11][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][11][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][11][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][11][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][12][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][11][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][11][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][11][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][11][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][11][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][11][2]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][11][2]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][11][2]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][10][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][10][2]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][10][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][10][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][10][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][10][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][10][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][10][0]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][10][0]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][10][0]                                               ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][10][1]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][10][0]                                               ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][9][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][9][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][9][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][9][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][10][1]                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][9][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][9][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][9][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][9][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][9][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][9][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][9][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][9][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][9][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][8][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][8][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][8][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][8][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][8][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][8][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][8][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][8][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][8][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][8][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][8][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][8][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][8][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][8][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][7][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][7][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][7][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][7][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][7][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][7][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][7][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][7][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][7][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][6][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][6][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][6][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][6][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][7][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][7][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][6][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][6][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][6][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][6][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][6][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][6][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][6][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][6][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][5][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][6][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][5][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][5][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][5][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][5][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][5][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][5][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][5][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][5][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][5][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][5][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][5][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][4][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][4][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][4][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][4][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][4][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][4][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][4][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][4][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][4][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][4][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][4][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][4][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][4][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][3][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][3][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][3][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][3][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][3][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][3][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][3][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][3][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][2][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][2][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][2][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][2][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][3][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][3][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][3][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][3][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][3][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][3][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][3][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][2][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][2][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][2][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][2][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][2][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][2][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][2][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][2][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][1][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][2][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][1][2]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][1][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][1][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][1][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][1][2]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][1][1]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][1][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][1][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][1][0]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][1][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][1][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][0][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][0][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][0][0]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][0][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][1][0]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[0][0][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[1][0][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[2][0][2]                                                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[3][0][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[4][0][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[5][0][1]                                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[6][0][1]                                                ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][0][2]                                                ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[9]                                                                       ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[0]                                                                       ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|time_counter[0]                                                            ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|level_fsm:inst30|sound_request[1]                                                                               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|MazeBitMapMask[7][0][1]                                                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[8]                                                                       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[1]                                                                       ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|time_counter[2]                                                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|level_fsm:inst11|sound_request[0]                                                                               ;
 ; 40:1               ; 2 bits    ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|objects_mux:inst29|RGBOut[6]                                                                                    ;
-; 40:1               ; 6 bits    ; 156 LEs       ; 156 LEs              ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|objects_mux:inst29|RGBOut[2]                                                                                    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|y_position[10]                                                             ;
+; 40:1               ; 6 bits    ; 156 LEs       ; 156 LEs              ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|objects_mux:inst29|RGBOut[0]                                                                                    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|y_position[9]                                                              ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|y_position[7]                                                              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|init_speed[1]                                                              ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_amounts_counter[1][4]                                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_amounts_counter[2][2]                                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_amounts_counter[1][0]                                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_amounts_counter[2][0]                                             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|x_position[10]                                                             ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|x_position[2]                                                              ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|col_ptr[1]                                                             ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|random_row[7]                                                          ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|row_ptr[0]                                                             ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[5]                                                                       ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|random_row[5]                                                          ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|row_ptr[1]                                                             ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; Yes        ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|noteTimeCounter[3]                                                                       ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|SM_Motion                                                                  ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Mux1                                                                   ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Mux28                                                                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|MinerBitMap:inst17|Mux747                                                                                       ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_type_tmp                                                          ;
-; 8:1                ; 48 bits   ; 240 LEs       ; 240 LEs              ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Mux37                                                                  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|lpm_rom:inst5|altrom:srom|altsyncram:rom_block|altsyncram_1s81:auto_generated|mux_jhb:mux2|l3_w1_n4_mux_dataout ;
+; 8:1                ; 48 bits   ; 240 LEs       ; 240 LEs              ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Mux69                                                                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|lpm_rom:inst5|altrom:srom|altsyncram:rom_block|altsyncram_1s81:auto_generated|mux_jhb:mux2|l3_w6_n4_mux_dataout ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|JukeBox1:JukeBox1|Mux2                                                                   ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1|Add2                                                                                     ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|Selector15                                                                               ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|melody_player_1:inst13|Selector16                                                                               ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Selector0                                                              ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|Selector1                                                              ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|Selector58                                                                 ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|Selector60                                                                 ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |TOP_GOLD_MINER_GAME|level_fsm:inst30|Selector23                                                                                     ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |TOP_GOLD_MINER_GAME|level_fsm:inst30|Selector18                                                                                     ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |TOP_GOLD_MINER_GAME|level_fsm:inst11|Selector22                                                                                     ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |TOP_GOLD_MINER_GAME|level_fsm:inst11|Selector18                                                                                     ;
 ; 25:1               ; 3 bits    ; 48 LEs        ; 42 LEs               ; 6 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|score_board_draw:inst1|char_to_draw[3]                                                                          ;
 ; 129:1              ; 3 bits    ; 258 LEs       ; 258 LEs              ; 0 LEs                  ; No         ; |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_type                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -1711,7 +1788,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: level_fsm:inst30 ;
+; Parameter Settings for User Entity Instance: level_fsm:inst11 ;
 +----------------+-------+--------------------------------------+
 ; Parameter Name ; Value ; Type                                 ;
 +----------------+-------+--------------------------------------+
@@ -2243,18 +2320,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 930                         ;
-;     CLR               ; 140                         ;
+; arriav_ff             ; 950                         ;
+;     CLR               ; 159                         ;
 ;     CLR SCLR          ; 128                         ;
 ;     CLR SLD           ; 1                           ;
-;     ENA               ; 50                          ;
+;     ENA               ; 51                          ;
 ;     ENA CLR           ; 487                         ;
 ;     ENA CLR SCLR      ; 64                          ;
 ;     ENA CLR SCLR SLD  ; 8                           ;
 ;     ENA SCLR          ; 43                          ;
 ;     plain             ; 9                           ;
 ; arriav_io_obuf        ; 8                           ;
-; arriav_lcell_comb     ; 5184                        ;
+; arriav_lcell_comb     ; 5191                        ;
 ;     arith             ; 859                         ;
 ;         0 data inputs ; 105                         ;
 ;         1 data inputs ; 374                         ;
@@ -2262,16 +2339,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 139                         ;
 ;         4 data inputs ; 141                         ;
 ;         5 data inputs ; 41                          ;
-;     extend            ; 202                         ;
-;         7 data inputs ; 202                         ;
-;     normal            ; 4057                        ;
+;     extend            ; 203                         ;
+;         7 data inputs ; 203                         ;
+;     normal            ; 4063                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 33                          ;
-;         2 data inputs ; 395                         ;
-;         3 data inputs ; 436                         ;
-;         4 data inputs ; 646                         ;
-;         5 data inputs ; 605                         ;
-;         6 data inputs ; 1940                        ;
+;         2 data inputs ; 402                         ;
+;         3 data inputs ; 435                         ;
+;         4 data inputs ; 909                         ;
+;         5 data inputs ; 595                         ;
+;         6 data inputs ; 1687                        ;
 ;     shared            ; 66                          ;
 ;         0 data inputs ; 13                          ;
 ;         1 data inputs ; 31                          ;
@@ -2285,7 +2362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 304                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 28.60                       ;
-; Average LUT depth     ; 8.96                        ;
+; Average LUT depth     ; 8.90                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2294,7 +2371,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:28     ;
+; Top            ; 00:01:57     ;
 +----------------+--------------+
 
 
@@ -2304,7 +2381,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Jan 20 14:00:13 2026
+    Info: Processing started: Tue Jan 20 14:53:16 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GoldMinerGame -c GoldMinerGame
 Info (20032): Parallel compilation is enabled and will use up to 16 processors
 Warning (20031): Parallel compilation is enabled for 16 processors, but there are only 14 processors in the system. Runtime may increase due to over usage of the processor space.
@@ -2504,28 +2581,29 @@ Warning (10230): Verilog HDL assignment warning at line_object.sv(44): truncated
 Warning (10230): Verilog HDL assignment warning at line_object.sv(47): truncated value with size 32 to match size of target (22) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/line_object.sv Line: 47
 Info (12128): Elaborating entity "MyConstant" for hierarchy "Claw_Block_Top:inst32|MyConstant:inst9"
 Warning (10230): Verilog HDL assignment warning at MyConstant.sv(14): truncated value with size 32 to match size of target (11) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/MyConstant.sv Line: 14
-Info (12128): Elaborating entity "level_fsm" for hierarchy "level_fsm:inst30"
-Warning (10230): Verilog HDL assignment warning at level_fsm.sv(47): truncated value with size 4 to match size of target (2) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/level_fsm.sv Line: 47
-Warning (10230): Verilog HDL assignment warning at level_fsm.sv(48): truncated value with size 4 to match size of target (2) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/level_fsm.sv Line: 48
+Info (12128): Elaborating entity "level_fsm" for hierarchy "level_fsm:inst11"
+Warning (10230): Verilog HDL assignment warning at level_fsm.sv(45): truncated value with size 4 to match size of target (2) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/level_fsm.sv Line: 45
+Warning (10230): Verilog HDL assignment warning at level_fsm.sv(46): truncated value with size 4 to match size of target (2) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/level_fsm.sv Line: 46
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "loot_data" into its bus
 Info (12128): Elaborating entity "loot_display_top" for hierarchy "loot_display_top:inst14"
 Info (12128): Elaborating entity "LootBitMaps" for hierarchy "loot_display_top:inst14|LootBitMaps:inst4"
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "loot_colors" into its bus
 Info (12128): Elaborating entity "square_object" for hierarchy "loot_display_top:inst14|square_object:inst11"
 Info (12128): Elaborating entity "loot_matrix" for hierarchy "loot_display_top:inst14|loot_matrix:inst"
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(82): truncated value with size 32 to match size of target (3) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 82
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(97): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 97
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(98): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 98
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(118): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 118
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(119): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 119
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(136): truncated value with size 32 to match size of target (6) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 136
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(143): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 143
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(147): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 147
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(158): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 158
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(161): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 161
-Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(182): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 182
+Warning (10036): Verilog HDL or VHDL warning at loot_matrix.sv(71): object "is_collision" assigned a value but never read File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 71
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(83): truncated value with size 32 to match size of target (3) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 83
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(105): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 105
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(106): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 106
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(137): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 137
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(138): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 138
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(155): truncated value with size 32 to match size of target (6) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 155
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(162): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 162
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(166): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 166
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(177): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 177
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(180): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 180
+Warning (10230): Verilog HDL assignment warning at loot_matrix.sv(201): truncated value with size 32 to match size of target (4) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 201
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "MazeBitMapMask" into its bus
-Info (12128): Elaborating entity "random" for hierarchy "loot_display_top:inst14|loot_matrix:inst|random:random1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 47
+Info (12128): Elaborating entity "random" for hierarchy "loot_display_top:inst14|loot_matrix:inst|random:random1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 48
 Warning (10230): Verilog HDL assignment warning at random.sv(22): truncated value with size 32 to match size of target (16) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/random.sv Line: 22
 Warning (10230): Verilog HDL assignment warning at random.sv(23): truncated value with size 32 to match size of target (16) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/random.sv Line: 23
 Warning (10230): Verilog HDL assignment warning at random.sv(28): truncated value with size 32 to match size of target (16) File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/KEYBOARDX/random.sv Line: 28
@@ -2743,22 +2821,22 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "Claw_Block_Top:inst32|claw_move:inst|y_position[2]" is converted into an equivalent circuit using register "Claw_Block_Top:inst32|claw_move:inst|y_position[2]~_emulated" and latch "Claw_Block_Top:inst32|claw_move:inst|y_position[2]~23" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 71
     Warning (13310): Register "Claw_Block_Top:inst32|claw_move:inst|y_position[0]" is converted into an equivalent circuit using register "Claw_Block_Top:inst32|claw_move:inst|y_position[0]~_emulated" and latch "Claw_Block_Top:inst32|claw_move:inst|y_position[0]~27" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 71
     Warning (13310): Register "Claw_Block_Top:inst32|claw_move:inst|x_position[2]" is converted into an equivalent circuit using register "Claw_Block_Top:inst32|claw_move:inst|x_position[2]~_emulated" and latch "Claw_Block_Top:inst32|claw_move:inst|x_position[2]~21" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 71
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[0]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[0]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[0]~1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[8]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[8]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[8]~5" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[4]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[4]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[4]~9" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[12]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[12]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[12]~13" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[2]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[2]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[2]~17" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[10]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[10]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[10]~21" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[6]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[6]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[6]~25" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[14]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[14]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[14]~29" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[1]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[1]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[1]~33" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[9]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[9]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[9]~37" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[5]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[5]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[5]~41" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[13]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[13]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[13]~45" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[3]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[3]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[3]~49" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[11]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[11]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[11]~53" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[7]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[7]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[7]~57" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
-    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[15]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[15]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[15]~61" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 104
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[0]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[0]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[0]~1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[8]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[8]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[8]~5" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[4]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[4]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[4]~9" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[12]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[12]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[12]~13" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[2]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[2]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[2]~17" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[10]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[10]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[10]~21" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[6]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[6]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[6]~25" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[14]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[14]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[14]~29" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[1]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[1]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[1]~33" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[9]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[9]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[9]~37" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[5]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[5]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[5]~41" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[13]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[13]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[13]~45" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[3]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[3]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[3]~49" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[11]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[11]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[11]~53" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[7]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[7]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[7]~57" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
+    Warning (13310): Register "loot_display_top:inst14|loot_matrix:inst|random_row[15]" is converted into an equivalent circuit using register "loot_display_top:inst14|loot_matrix:inst|random_row[15]~_emulated" and latch "loot_display_top:inst14|loot_matrix:inst|random_row[15]~61" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 115
     Warning (13310): Register "Claw_Block_Top:inst32|claw_move:inst|init_speed[2]" is converted into an equivalent circuit using register "Claw_Block_Top:inst32|claw_move:inst|init_speed[2]~_emulated" and latch "Claw_Block_Top:inst32|claw_move:inst|init_speed[2]~1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 71
     Warning (13310): Register "Claw_Block_Top:inst32|claw_move:inst|init_speed[1]" is converted into an equivalent circuit using register "Claw_Block_Top:inst32|claw_move:inst|init_speed[1]~_emulated" and latch "Claw_Block_Top:inst32|claw_move:inst|init_speed[1]~5" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/claw_move.sv Line: 71
     Warning (13310): Register "melody_player_1:inst13|noteTimeCounter[6]" is converted into an equivalent circuit using register "melody_player_1:inst13|noteTimeCounter[6]~_emulated" and latch "melody_player_1:inst13|noteTimeCounter[6]~1" File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/AUDIO/melody_player_1.sv Line: 75
@@ -2811,19 +2889,19 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 6072 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6100 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 48 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 5694 logic cells
+    Info (21061): Implemented 5722 logic cells
     Info (21064): Implemented 304 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 10 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
-    Info: Peak virtual memory: 5097 megabytes
-    Info: Processing ended: Tue Jan 20 14:04:21 2026
-    Info: Elapsed time: 00:04:08
-    Info: Total CPU time (on all processors): 00:04:32
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 159 warnings
+    Info: Peak virtual memory: 5037 megabytes
+    Info: Processing ended: Tue Jan 20 14:55:40 2026
+    Info: Elapsed time: 00:02:24
+    Info: Total CPU time (on all processors): 00:02:40
 
 
 +------------------------------------------+

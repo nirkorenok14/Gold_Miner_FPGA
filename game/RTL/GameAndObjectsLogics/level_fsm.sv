@@ -19,7 +19,6 @@ module level_fsm (
     output logic       loot_collision, // claw collide with a loot 
     output logic [3:0] move_speed,     // define the speed of the claw and loot 
     output logic [13:0] score,
-    output logic       SingleHitPulse, // critical code, generating A single pulse in a frame, i.e. only collide once 
     output logic       level_ended,
 
     // --- NEW OUTPUTS FOR SOUND ---
@@ -34,8 +33,7 @@ module level_fsm (
     logic inter_loot_collision;
     assign inter_claw_collision = inter_loot_collision | (claw_dr && borders_dr);
     assign inter_loot_collision = (claw_dr && loot_dr);
-    assign claw_collision = inter_claw_collision && SingleHitPulse;
-    assign loot_collision = inter_loot_collision && SingleHitPulse;
+
 
     // loot properties matrix - rows are loot types, colmunes in order are score, move_speed
     logic [0:2][0:1][3:0] loot_data ={
@@ -59,7 +57,6 @@ module level_fsm (
     begin
         if(!resetN)
         begin 
-            SingleHitPulse <= 1'b0 ;
             SMlevel <= IDLE_ST;
             score <= 0;
             move_speed <= 4'd0; 
@@ -112,9 +109,10 @@ module level_fsm (
                         SMlevel <= LEVEL_END_ST;
                     else if (inter_claw_collision) begin
                         SMlevel <= HOLD_COLLISION_ST;
-                        SingleHitPulse <= 1'b1;
-                        if(inter_loot_collision)
-                            is_loot_collision <= 1'b1;
+                        claw_collision <= 1'b1;
+								if(inter_loot_collision)
+									is_loot_collision <= 1'b1;
+									loot_collision <= 1'b1;
                     
                     end                         
                 end
@@ -136,11 +134,11 @@ module level_fsm (
                              play_sound    <= 1'b1;
                         end
                     end
-                    
+                    claw_collision <= 1'b0;
+						  loot_collision <= 1'b0;
                     if (timer_ended)
                         SMlevel <= LEVEL_END_ST;
                     else if (startOfFrame) begin
-                        SingleHitPulse <= 1'b0;
                         SMlevel <= GOING_BACK_ST;
                     end
                 end
