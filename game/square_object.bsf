@@ -109,6 +109,16 @@ agreement for further details.
 		"00000011"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"OFFSET_TOPLEFTX"
+		"00000000000"
+		""
+		(type "PARAMETER_SIGNED_BIN")	)
+	(parameter
+		"OFFSET_TOPLEFTY"
+		"00000000000"
+		""
+		(type "PARAMETER_SIGNED_BIN")	)
 	(drawing
 		(rectangle (rect 16 16 208 128)(line_width 1))
 	)
