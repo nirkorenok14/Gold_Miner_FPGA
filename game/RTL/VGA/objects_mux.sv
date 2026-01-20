@@ -15,9 +15,13 @@ module	objects_mux	(
 		// by order of importance: claw should above all always
 					input		logic	claw_dr, 
 					input		logic	[7:0] claw_RGB,
-		// line is imortant than loot, but almost immossible from them to overlap
+		// line is imortant than loot, but almost immpossible from them to overlap
 					input    logic claw_line_dr, 
 					input		logic	[7:0] claw_lineRGB,   
+					
+		 // scoreboard
+               input  logic        scoreboardDrawingRequest,
+               input  logic [7:0]  scoreboardRGB,
 			  
 		// loot should be second
 					input    logic loot_dr, 
@@ -44,6 +48,10 @@ begin
 	else begin
 		if (claw_dr == 1'b1 )   
 			RGBOut <= claw_RGB;  //first priority	
+			
+		else if(scoreboardDrawingRequest == 1'b1)
+		   RGBOut <= scoreboardRGB;
+				
 
 		else if (claw_line_dr == 1'b1)
 			RGBOut <= claw_lineRGB;
@@ -53,10 +61,13 @@ begin
 
  		else if (miner_dr == 1'b1)
 				RGBOut <= minerRGB;
+				
 		else if (timer_dr == 1'b1)
 				RGBOut <= timerRGB;
+				
 		else if (BG_dr == 1'b1)
 				RGBOut <= backGroundRGB ;
+				
 		else RGBOut <= RGB_MIF ;// last priority 
 		end ; 
 	end

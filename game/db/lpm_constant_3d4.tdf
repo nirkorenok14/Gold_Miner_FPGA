@@ -1,4 +1,4 @@
---lpm_constant LPM_CVALUE=0F0 LPM_WIDTH=11 result
+--lpm_constant LPM_CVALUE=23A LPM_WIDTH=11 result
 --VERSION_BEGIN 17.0 cbx_lpm_constant 2017:04:25:18:06:29:SJ cbx_mgl 2017:04:25:18:09:28:SJ  VERSION_END
 
 
@@ -26,6 +26,6 @@ SUBDESIGN lpm_constant_3d4
 ) 
 
 BEGIN 
-	result[] = B"00011110000";
+	result[] = B"01000111010";
 END;
 --VALID FILE

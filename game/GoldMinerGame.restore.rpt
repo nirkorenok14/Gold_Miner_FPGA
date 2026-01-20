@@ -1,5 +1,5 @@
 Restore Archived Project report for GoldMinerGame
-Wed Dec 17 22:59:12 2025
+Tue Jan 20 13:59:25 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -37,9 +37,9 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Wed Dec 17 22:59:12 2025 ;
-; Revision Name                   ; GoldMinerGame                              ;
-; Top-level Entity Name           ; TOP_VGA_SIFTACH                       ;
+; Restore Archived Project Status ; Successful - Tue Jan 20 13:59:25 2026 ;
+; Revision Name                   ; GoldMinerGame                         ;
+; Top-level Entity Name           ; TOP_GOLD_MINER_GAME                   ;
 ; Family                          ; Cyclone V                             ;
 +---------------------------------+---------------------------------------+
 
@@ -47,14 +47,14 @@ agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/VGA_271125.qar' into the 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/' directory
+Info: Successfully restored 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_mvp_v2.qar' into the 'C:\\Users\\nirko\\Documents\\Degree\\Electrical_Eng_Lab_1\\Gold_Miner_FPGA\\game/' directory
 Info: Generated report 'GoldMinerGame.restore.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4825 megabytes
-    Info: Processing ended: Wed Dec 17 22:59:12 2025
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Tue Jan 20 13:59:25 2026
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +------------------------------------------------------------+
@@ -72,10 +72,10 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; CLK_31P5/CLK_31P5_0002.v                                   ;
 ; CLK_31P5_sim/CLK_31P5.vo                                   ;
 ; DE10_Standard_Audio.sdc                                    ;
+; GoldMinerGame.qpf                                          ;
+; GoldMinerGame.qsf                                          ;
+; GoldMinerGame_assignment_defaults.qdf                      ;
 ; KBDINTF.qxp                                                ;
-; GoldMinerGame.qpf                                               ;
-; GoldMinerGame.qsf                                               ;
-; GoldMinerGame_assignment_defaults.qdf                           ;
 ; RTL/AUDIO/AUDIO.bdf                                        ;
 ; RTL/AUDIO/JukeBox1.sv                                      ;
 ; RTL/AUDIO/Mili_sec_counter.sv                              ;
@@ -88,39 +88,51 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; RTL/AUDIO/audio_codec_controller/i2c.sv                    ;
 ; RTL/AUDIO/melody_player_1.sv                               ;
 ; RTL/AUDIO/prescaler.sv                                     ;
+; RTL/GameAndObjectsLogics/Claw_Block_Top.bdf                ;
+; RTL/GameAndObjectsLogics/claw_move.sv                      ;
+; RTL/GameAndObjectsLogics/game_controller.sv                ;
+; RTL/GameAndObjectsLogics/level_fsm.sv                      ;
+; RTL/GameAndObjectsLogics/loot_matrix.sv                    ;
+; RTL/GameAndObjectsLogics/score_board_draw.sv               ;
 ; RTL/KEYBOARDX/TOP_KBD.bdf                                  ;
 ; RTL/KEYBOARDX/keyPad_decoder.sv                            ;
 ; RTL/KEYBOARDX/random.sv                                    ;
 ; RTL/KEYBOARDX/simple_up_counter.sv                         ;
 ; RTL/Seg7/SEG7.SV                                           ;
-; RTL/VGA/HART_DISPLAY.bdf                                   ;
-; RTL/VGA/HartsMatrixBitMap.sv                               ;
+; RTL/TOP_GOLD_MINER_GAME.bdf                                ;
+; RTL/Timer/Timer_Block.bdf                                  ;
+; RTL/Timer/check_timer_end.sv                               ;
+; RTL/Timer/digit_object_mux.sv                              ;
+; RTL/Utils/circle_object.sv                                 ;
+; RTL/Utils/down_counter.sv                                  ;
+; RTL/Utils/one_sec_counter.sv                               ;
+; RTL/VGA/Bitmaps/LootBitMaps.sv                             ;
+; RTL/VGA/Bitmaps/MinerBitMap.sv                             ;
+; RTL/VGA/Bitmaps/NumbersBitMap.sv                           ;
+; RTL/VGA/Bitmaps/claw_bitmap.sv                             ;
 ; RTL/VGA/MyConstant.sv                                      ;
-; RTL/VGA/NumbersBitMap.sv                                   ;
-; RTL/VGA/Smiley_Block_T.bdf                                 ;
-; RTL/VGA/TOP_VGA_DEMO_KBD.bdf                               ;
-; RTL/VGA/TOP_VGA_SIFTACH.bdf                                ;
 ; RTL/VGA/VGA_Controller.sv                                  ;
 ; RTL/VGA/back_ground_draw.sv                                ;
-; RTL/VGA/game_controller.sv                                 ;
+; RTL/VGA/line_object.sv                                     ;
+; RTL/VGA/loot_display_top.bdf                               ;
 ; RTL/VGA/objects_mux.sv                                     ;
-; RTL/VGA/smileyBitMap.sv                                    ;
-; RTL/VGA/smiley_move.sv                                     ;
-; RTL/VGA/square_Hart_object.sv                              ;
 ; RTL/VGA/square_object.sv                                   ;
 ; RTL/VGA/valX.bsf                                           ;
 ; RTL/VGA/valX.qip                                           ;
 ; RTL/VGA/valX.v                                             ;
 ; RTL/VGA/valX_bb.v                                          ;
 ; RTL/VGA/valX_inst.v                                        ;
+; Waveform.vwf                                               ;
+; Waveform1.vwf                                              ;
+; Waveform2.vwf                                              ;
+; Waveform3.vwf                                              ;
+; Waveform4.vwf                                              ;
 ; assignment_defaults.qdf                                    ;
 ; constraints/DE10_Standard_Audio.sdc                        ;
 ; constraints/pin.tcl                                        ;
-; db/stp1_auto_stripped.stp                                  ;
-; output_files/Chain1.cdf                                    ;
-; output_files/Chain2.cdf                                    ;
-; output_files/stp1.stp                                      ;
-; rtl/vga_bg.mif                                             ;
+; db/claw_check_auto_stripped.stp                            ;
+; output_files/claw_check.stp                                ;
+; rtl/vga/bitmaps/gm_background.mif                          ;
 +------------------------------------------------------------+
 
 
