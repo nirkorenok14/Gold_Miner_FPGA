@@ -237,6 +237,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to yellowLight
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to resetN_pin
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_button
+set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/score_board_draw.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/MinerBitMap.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/LootBitMaps.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/loot_matrix.sv

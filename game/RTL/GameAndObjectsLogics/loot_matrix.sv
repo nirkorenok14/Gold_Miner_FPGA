@@ -10,6 +10,7 @@ module	loot_matrix(
 					input logic start_of_frame,
 					
 					output	logic [2:0] loot_type,
+					output	logic [2:0] caugth_loot_type,
 					// loot offset
 					output	logic	[10:0] offsetX_LSB,
 					output	logic	[10:0] offsetY_LSB,
@@ -86,6 +87,13 @@ logic [(LOOT_AMOUNT_SIZE-1):0] loot_amounts_counter [0:(TOTAL_LOOT_TYPES-1)];
 
 enum logic [2:0] {IDLE_ST, START_LEVEL_ST, MAP_GEN_ST, NEXT_COL_ST, FILL_MISSING_ST, LEVEL_ST} loot_SM;
 
+
+logic [10:0] x_history [0:2]; // Array to hold 3 cycles of history
+logic [10:0] y_history [0:2];
+
+// collision only happen once, there is a delay of two clks, needs to be assigned on the same clk for next units
+assign caugth_loot_type = (loot_collision) ? MazeBitMapMask[y_history[2]][x_history[2]] : 2'b0;
+
 always_ff@(posedge clk or negedge resetN) begin
 	if(!resetN) begin
 		loot_type <= 0;
@@ -98,9 +106,20 @@ always_ff@(posedge clk or negedge resetN) begin
 	   row_ptr <= MAZE_WIDTH_X-1;
 		is_fill_missing <= 0;
 		is_collision <= 0;
-			
+		x_history [0:2] <= '{default:0} ;
+		y_history [0:2] <= '{default:0} ;
 	end
 	else begin
+		// no need to be a part of the fsm
+		// used for saving the from two clk what was the loot type that the claw (the one that did the drawing request)
+		x_history[0] <= offsetX_MSB; // Current
+		x_history[1] <= x_history[0]; // 1 clock ago
+		x_history[2] <= x_history[1]; // 2 clocks ago
+
+		y_history[0] <= offsetY_MSB;
+		y_history[1] <= y_history[0];
+		y_history[2] <= y_history[1];
+		
 		case (loot_SM)
 		
 			IDLE_ST: begin
@@ -189,12 +208,13 @@ always_ff@(posedge clk or negedge resetN) begin
 			end
 		
 			LEVEL_ST: begin
-				if (loot_collision && !is_collision) begin
-					MazeBitMapMask[offsetY_MSB][offsetX_MSB] <= 3'd0;  // clear entry 
-					is_collision <= 1;
+				// collision is only up for one clk, but it happens one clk after the hit itself, so two clks after it was here
+				if (loot_collision) begin
+					MazeBitMapMask[y_history[2]][x_history[2]] <= 3'd0;  // clear entry 
+//					is_collision <= 1;
 				end
-				if (start_of_frame)
-					is_collision <= 0;
+//				if (start_of_frame)
+//					is_collision <= 0;
 				
 				if (InsideRectangle == 1'b1)
 					loot_type <= MazeBitMapMask[offsetY_MSB][offsetX_MSB];

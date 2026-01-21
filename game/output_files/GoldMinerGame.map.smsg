@@ -1,2 +1,2 @@
 Warning (10268): Verilog HDL information at LootBitMaps.sv(96): always construct contains both blocking and non-blocking assignments File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/VGA/Bitmaps/LootBitMaps.sv Line: 96
-Warning (10268): Verilog HDL information at loot_matrix.sv(89): always construct contains both blocking and non-blocking assignments File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 89
+Warning (10268): Verilog HDL information at loot_matrix.sv(97): always construct contains both blocking and non-blocking assignments File: C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/RTL/GameAndObjectsLogics/loot_matrix.sv Line: 97

@@ -97,8 +97,8 @@ agreement for further details.
 	(port
 		(pt 0 192)
 		(input)
-		(text "goal[9..0]" (rect 0 0 35 12)(font "Arial" ))
-		(text "goal[9..0]" (rect 21 187 56 199)(font "Arial" ))
+		(text "goal[13..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "goal[13..0]" (rect 21 187 59 199)(font "Arial" ))
 		(line (pt 0 192)(pt 16 192)(line_width 3))
 	)
 	(port
@@ -132,23 +132,30 @@ agreement for further details.
 	(port
 		(pt 248 80)
 		(output)
-		(text "score[9..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "score[9..0]" (rect 185 75 227 87)(font "Arial" ))
+		(text "score[13..0]" (rect 0 0 46 12)(font "Arial" ))
+		(text "score[13..0]" (rect 181 75 227 87)(font "Arial" ))
 		(line (pt 248 80)(pt 232 80)(line_width 3))
 	)
 	(port
 		(pt 248 96)
 		(output)
-		(text "SingleHitPulse" (rect 0 0 54 12)(font "Arial" ))
-		(text "SingleHitPulse" (rect 173 91 227 103)(font "Arial" ))
+		(text "level_ended" (rect 0 0 47 12)(font "Arial" ))
+		(text "level_ended" (rect 180 91 227 103)(font "Arial" ))
 		(line (pt 248 96)(pt 232 96)(line_width 1))
 	)
 	(port
 		(pt 248 112)
 		(output)
-		(text "level_ended" (rect 0 0 47 12)(font "Arial" ))
-		(text "level_ended" (rect 180 107 227 119)(font "Arial" ))
-		(line (pt 248 112)(pt 232 112)(line_width 1))
+		(text "sound_request[3..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "sound_request[3..0]" (rect 148 107 227 119)(font "Arial" ))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "play_sound" (rect 0 0 46 12)(font "Arial" ))
+		(text "play_sound" (rect 181 123 227 135)(font "Arial" ))
+		(line (pt 248 128)(pt 232 128)(line_width 1))
 	)
 	(parameter
 		"def_move_speed"
