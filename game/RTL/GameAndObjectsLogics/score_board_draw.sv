@@ -1,161 +1,161 @@
+// At the very top of your file
+// holds all the char cases 
+import char_enum_pkg::*;
+
 module score_board_draw (
-    input  logic        clk,
-    input  logic        resetN,
     input  logic [10:0] pixelX,
     input  logic [10:0] pixelY,
     
-    input  logic    [13:0]      level,  
-    input  logic      [13:0]        score,  
-    input  logic      [13:0]        target, 
+    input  logic [2:0]  level_num,  
+    input  logic [13:0] score,  
+    input  logic [13:0] target,
+	 input  logic [3:0]  units_timer,
+	 input  logic [3:0]  tens_timer,
     
-    output logic        drawing_request_scoreboard, 
-    output logic [7:0]  scoreboardRGB
+    output logic [7:0] scoreboardRGB,
+	 output logic [6:0] char_code,
+	 output logic [2:0] row_idx,
+	 output logic [2:0] col_idx
 );
+    // ============================================================
+    //  CONSTANTS & PARAMETERS
+    // ============================================================
+    
+    // --- TIMER POSITION (Adjustable) ---
+    // Defined independently to allow placement anywhere
+    localparam int TIMER_LABEL_X = 500; 
+    localparam int TIMER_LABEL_Y = 55;  
 
+	 
+	// --- LEFT SIDE SCOREBOARD POSITIONS ---
     localparam int POS_X = 30;        
     localparam int LINE_HEIGHT = 20; 
     
     localparam int LEVEL_Y  = 40;                
     localparam int TARGET_Y = LEVEL_Y + LINE_HEIGHT; 
     localparam int SCORE_Y  = TARGET_Y + LINE_HEIGHT; 
-
+	 
+	 // zero base all are in len+1
+	 localparam int SCORE_STR_LEN = 10; 
+	 localparam int TARGET_STR_LEN = 10;
+	 localparam int LEVEL_STR_LEN = 8;
+	 localparam int TIMER_STR_LEN = 8;
+	 
+	 localparam int HEX_SIZE = 8;
+	 
+	 
+    // BCD Signals (4 bits per digit)
     logic [3:0] sc_tho, sc_hun, sc_ten, sc_uni;
     logic [3:0] tr_tho, tr_hun, tr_ten, tr_uni;
-    logic [3:0] lv_ten, lv_uni;
 
-    
-    assign lv_ten = (level / 10) % 10;
-    assign lv_uni = level % 10;
+     // Instance for the Target BCD conversion
+	 bin_to_bcd target_converter (
+	 	 .binary_in(target),      // Connect your 14-bit target input
+	 	 .thousands(tr_tho),      // Output thousands digit
+	 	 .hundreds(tr_hun),       // Output hundreds digit
+	 	 .tens(tr_ten),           // Output tens digit
+	 	 .units(tr_uni)           // Output units digit
+	 );
 
-    assign tr_tho = (target / 1000) % 10;
-    assign tr_hun = (target / 100) % 10;
-    assign tr_ten = (target / 10) % 10;
-    assign tr_uni = target % 10;
+	 // Instance for the Score BCD conversion
+	 bin_to_bcd score_converter (
+	 	 .binary_in(score),       // Connect your 14-bit score input
+	 	 .thousands(sc_tho),      // Output thousands digit
+	 	 .hundreds(sc_hun),       // Output hundreds digit
+	 	 .tens(sc_ten),           // Output tens digit
+	 	 .units(sc_uni)           // Output units digit
+	 );
 
-    assign sc_tho = (score / 1000) % 10;
-    assign sc_hun = (score / 100) % 10;
-    assign sc_ten = (score / 10) % 10;
-    assign sc_uni = score % 10;
 
-   
-    function [7:0] get_char_row(input [4:0] char_code, input [2:0] row_idx);
-        case (char_code)
-            5'h00: begin /* S */ case(row_idx) 0:return 8'h3C; 1:return 8'h60; 2:return 8'h60; 3:return 8'h3C; 4:return 8'h06; 5:return 8'h06; 6:return 8'h3C; default:return 0; endcase end
-            5'h01: begin /* C */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h60; 3:return 8'h60; 4:return 8'h60; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h02: begin /* O */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h66; 4:return 8'h66; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h03: begin /* R */ case(row_idx) 0:return 8'h7C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h7C; 4:return 8'h78; 5:return 8'h6C; 6:return 8'h66; default:return 0; endcase end
-            5'h04: begin /* E */ case(row_idx) 0:return 8'h7E; 1:return 8'h60; 2:return 8'h60; 3:return 8'h7C; 4:return 8'h60; 5:return 8'h60; 6:return 8'h7E; default:return 0; endcase end
-            5'h05: begin /* : */ case(row_idx) 0:return 8'h00; 1:return 8'h18; 2:return 8'h18; 3:return 8'h00; 4:return 8'h18; 5:return 8'h18; 6:return 8'h00; default:return 0; endcase end
-            5'h06: begin /* T */ case(row_idx) 0:return 8'h7E; 1:return 8'h18; 2:return 8'h18; 3:return 8'h18; 4:return 8'h18; 5:return 8'h18; 6:return 8'h18; default:return 0; endcase end
-            5'h07: begin /* A */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h7E; 4:return 8'h66; 5:return 8'h66; 6:return 8'h66; default:return 0; endcase end
-            5'h08: begin /* G */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h60; 3:return 8'h6E; 4:return 8'h66; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h09: begin /* L */ case(row_idx) 0:return 8'h60; 1:return 8'h60; 2:return 8'h60; 3:return 8'h60; 4:return 8'h60; 5:return 8'h60; 6:return 8'h7E; default:return 0; endcase end
-            5'h14: begin /* V */ case(row_idx) 0:return 8'h66; 1:return 8'h66; 2:return 8'h66; 3:return 8'h66; 4:return 8'h66; 5:return 8'h3C; 6:return 8'h18; default:return 0; endcase end
-            
-            
-            5'h0A: begin /* 0 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h66; 4:return 8'h66; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h0B: begin /* 1 */ case(row_idx) 0:return 8'h18; 1:return 8'h38; 2:return 8'h18; 3:return 8'h18; 4:return 8'h18; 5:return 8'h18; 6:return 8'h3C; default:return 0; endcase end
-            5'h0C: begin /* 2 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h0C; 3:return 8'h18; 4:return 8'h30; 5:return 8'h60; 6:return 8'h7E; default:return 0; endcase end
-            5'h0D: begin /* 3 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h0C; 3:return 8'h1C; 4:return 8'h0C; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h0E: begin /* 4 */ case(row_idx) 0:return 8'h0C; 1:return 8'h1C; 2:return 8'h3C; 3:return 8'h6C; 4:return 8'h7E; 5:return 8'h0C; 6:return 8'h0C; default:return 0; endcase end
-            5'h0F: begin /* 5 */ case(row_idx) 0:return 8'h7E; 1:return 8'h60; 2:return 8'h7C; 3:return 8'h06; 4:return 8'h06; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h10: begin /* 6 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h60; 3:return 8'h7C; 4:return 8'h66; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h11: begin /* 7 */ case(row_idx) 0:return 8'h7E; 1:return 8'h06; 2:return 8'h0C; 3:return 8'h18; 4:return 8'h30; 5:return 8'h30; 6:return 8'h30; default:return 0; endcase end
-            5'h12: begin /* 8 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h3C; 4:return 8'h66; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            5'h13: begin /* 9 */ case(row_idx) 0:return 8'h3C; 1:return 8'h66; 2:return 8'h66; 3:return 8'h3E; 4:return 8'h06; 5:return 8'h66; 6:return 8'h3C; default:return 0; endcase end
-            
-            default: return 8'h00;
-        endcase
-    endfunction
-
-    logic [4:0] char_to_draw;
-    logic [2:0] row_in_char;
-    logic [2:0] col_in_char;
-    logic [7:0] pixel_row;
-    logic       pixel_on;
- 
  
     logic [10:0] diffX;
+	 logic [10:0] diffX_Timer;
     logic [10:0] diffY_Level;
     logic [10:0] diffY_Target;
     logic [10:0] diffY_Score;
+	 logic [10:0] diffY_Timer;
     
     assign diffX = pixelX - POS_X;
+	 assign diffX_Timer = pixelX - TIMER_LABEL_X;
     assign diffY_Level = pixelY - LEVEL_Y;
     assign diffY_Target = pixelY - TARGET_Y;
     assign diffY_Score = pixelY - SCORE_Y;
+	 assign diffY_Timer = pixelY - TIMER_LABEL_Y;
+	 
+	 // char_name_t is the enum
+	 char_name_t level_string [0:LEVEL_STR_LEN];   // Array for "LEVEL:  X"
+	 char_name_t score_string [0:SCORE_STR_LEN];  // Array for "SCORE: XXXX"
+	 char_name_t target_string [0:TARGET_STR_LEN]; // Array for "TARGET:XXXX"
+	 
+	 char_name_t timer_string [0:TIMER_STR_LEN]; // Array for "TIMER: XX"
+	 
+	 // Logic to pick the character
+	 logic [3:0] char_index;
 
     always_comb begin
-       
-        pixel_on = 1'b0;
-        char_to_draw = 5'h1F;
-        
-        
-        col_in_char = diffX[2:0]; 
-        row_in_char = 3'b000;
-        
-        pixel_row = 8'h00;
+		  // default empty val - important to remove a ff
+        char_code = CHAR_NULL;
+        row_idx = 3'd0;
+		  col_idx = 3'd0;
+		  char_index = 4'd0;
+		  
+		  level_string = '{CHAR_L, CHAR_E, CHAR_V, CHAR_E, CHAR_L, CHAR_COLON, CHAR_NULL, CHAR_NULL, 
+						//converstaion_math
+						char_name_t'(level_num + CHAR_0)};
+		  score_string = '{CHAR_S, CHAR_C, CHAR_O, CHAR_R, CHAR_E, CHAR_COLON, CHAR_NULL, 
+								//converstaion_math
+                        char_name_t'(sc_tho + CHAR_0), char_name_t'(sc_hun + CHAR_0), 
+                        char_name_t'(sc_ten + CHAR_0), char_name_t'(sc_uni + CHAR_0)};
+		  target_string = '{CHAR_T, CHAR_A, CHAR_R, CHAR_G, CHAR_E, CHAR_T, CHAR_COLON, 
+								//converstaion_math
+                        char_name_t'(tr_tho + CHAR_0), char_name_t'(tr_hun + CHAR_0), 
+                        char_name_t'(tr_ten + CHAR_0), char_name_t'(tr_uni + CHAR_0)};
+		  timer_string = '{CHAR_T, CHAR_I, CHAR_M, CHAR_E, CHAR_R, CHAR_COLON, CHAR_NULL,
+								//converstaion_math
+                        char_name_t'(tens_timer + CHAR_0), char_name_t'(units_timer + CHAR_0)};
+			
+			
+        // --- PART 1: LEFT SIDE SCOREBOARD ---
+		  // Check if we are inside the X-range for the left scoreboard first
+		  // the len should be the max
+		  if (pixelX >= POS_X && pixelX < POS_X + (SCORE_STR_LEN + 1) * HEX_SIZE) begin
+			  col_idx = diffX[2:0];
+			  char_index = diffX[6:3]; // Same as diffX / 8
+			  if (pixelY >= LEVEL_Y && pixelY < LEVEL_Y + HEX_SIZE && char_index <= LEVEL_STR_LEN) begin
+					row_idx = diffY_Level[2:0]; 
+					char_code = level_string[char_index];
+			  end
+			  
+			  
+			  else if (pixelY >= TARGET_Y && pixelY < TARGET_Y + HEX_SIZE && char_index <= TARGET_STR_LEN) begin
+					row_idx = diffY_Target[2:0]; 
+					char_code = target_string[char_index];
+			  end
 
-        
-        if (pixelY >= LEVEL_Y && pixelY < LEVEL_Y + 8) begin
-            row_in_char = diffY_Level[2:0]; 
-            
-            if      (pixelX >= POS_X    && pixelX < POS_X+8)  char_to_draw = 5'h09; // L
-            else if (pixelX >= POS_X+8  && pixelX < POS_X+16) char_to_draw = 5'h04; // E
-            else if (pixelX >= POS_X+16 && pixelX < POS_X+24) char_to_draw = 5'h14; // V
-            else if (pixelX >= POS_X+24 && pixelX < POS_X+32) char_to_draw = 5'h04; // E
-            else if (pixelX >= POS_X+32 && pixelX < POS_X+40) char_to_draw = 5'h09; // L
-            else if (pixelX >= POS_X+40 && pixelX < POS_X+48) char_to_draw = 5'h05; // :
-            else if (pixelX >= POS_X+56 && pixelX < POS_X+64) begin
-                 if(level >= 10) char_to_draw = {1'b0, lv_ten} + 5'h0A; else char_to_draw = 5'h1F; 
-            end
-            else if (pixelX >= POS_X+64 && pixelX < POS_X+72) char_to_draw = {1'b0, lv_uni} + 5'h0A; 
-        end
-        
-        
-        else if (pixelY >= TARGET_Y && pixelY < TARGET_Y + 8) begin
-            row_in_char = diffY_Target[2:0]; 
-            
-            if      (pixelX >= POS_X    && pixelX < POS_X+8)  char_to_draw = 5'h06; // T
-            else if (pixelX >= POS_X+8  && pixelX < POS_X+16) char_to_draw = 5'h07; // A
-            else if (pixelX >= POS_X+16 && pixelX < POS_X+24) char_to_draw = 5'h03; // R
-            else if (pixelX >= POS_X+24 && pixelX < POS_X+32) char_to_draw = 5'h08; // G
-            else if (pixelX >= POS_X+32 && pixelX < POS_X+40) char_to_draw = 5'h04; // E
-            else if (pixelX >= POS_X+40 && pixelX < POS_X+48) char_to_draw = 5'h06; // T
-            else if (pixelX >= POS_X+48 && pixelX < POS_X+56) char_to_draw = 5'h05; // :
-            
-            else if (pixelX >= POS_X+56 && pixelX < POS_X+64) char_to_draw = {1'b0, tr_tho} + 5'h0A;
-            else if (pixelX >= POS_X+64 && pixelX < POS_X+72) char_to_draw = {1'b0, tr_hun} + 5'h0A;
-            else if (pixelX >= POS_X+72 && pixelX < POS_X+80) char_to_draw = {1'b0, tr_ten} + 5'h0A;
-            else if (pixelX >= POS_X+80 && pixelX < POS_X+88) char_to_draw = {1'b0, tr_uni} + 5'h0A;
-        end
-
-        
-        else if (pixelY >= SCORE_Y && pixelY < SCORE_Y + 8) begin
-            row_in_char = diffY_Score[2:0]; 
-            
-            if      (pixelX >= POS_X    && pixelX < POS_X+8)  char_to_draw = 5'h00; // S
-            else if (pixelX >= POS_X+8  && pixelX < POS_X+16) char_to_draw = 5'h01; // C
-            else if (pixelX >= POS_X+16 && pixelX < POS_X+24) char_to_draw = 5'h02; // O
-            else if (pixelX >= POS_X+24 && pixelX < POS_X+32) char_to_draw = 5'h03; // R
-            else if (pixelX >= POS_X+32 && pixelX < POS_X+40) char_to_draw = 5'h04; // E
-            else if (pixelX >= POS_X+40 && pixelX < POS_X+48) char_to_draw = 5'h05; // :
-            
-            else if (pixelX >= POS_X+56 && pixelX < POS_X+64) char_to_draw = {1'b0, sc_tho} + 5'h0A;
-            else if (pixelX >= POS_X+64 && pixelX < POS_X+72) char_to_draw = {1'b0, sc_hun} + 5'h0A;
-            else if (pixelX >= POS_X+72 && pixelX < POS_X+80) char_to_draw = {1'b0, sc_ten} + 5'h0A;
-            else if (pixelX >= POS_X+80 && pixelX < POS_X+88) char_to_draw = {1'b0, sc_uni} + 5'h0A;
+			  
+			  else if (pixelY >= SCORE_Y && pixelY < SCORE_Y + HEX_SIZE && char_index <= SCORE_STR_LEN) begin
+					row_idx = diffY_Score[2:0]; 
+					char_code = score_string[char_index];
+				end
         end
 
-        if (char_to_draw != 5'h1F) begin
-            pixel_row = get_char_row(char_to_draw, row_in_char);
-            if (pixel_row[7 - col_in_char] == 1'b1) 
-                pixel_on = 1'b1;
+         // --- PART 2: TIMER ---
+        // Independent IF statement (NOT else if).
+        // This solves the visibility issue if TIMER_LABEL_Y equals LEVEL_Y.
+		  if (pixelX >= TIMER_LABEL_X && pixelX < TIMER_LABEL_X + (TIMER_STR_LEN + 1) * HEX_SIZE) begin
+			  if (pixelY >= TIMER_LABEL_Y && pixelY < TIMER_LABEL_Y + HEX_SIZE) begin
+					// Only draw if we are in the specific X range of the TIMER text
+					char_index = diffX_Timer[6:3];
+					if (char_index <= TIMER_STR_LEN) begin
+						 row_idx = diffY_Timer[2:0];
+						 col_idx = diffX_Timer[2:0];
+						 char_code = timer_string[char_index];
+					end
+				end
         end
+
     end
-
-    assign drawing_request_scoreboard = pixel_on;
     
-    assign scoreboardRGB = 8'h00; 
+assign scoreboardRGB = 8'h00; 
 
 endmodule

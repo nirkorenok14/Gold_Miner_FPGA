@@ -9,12 +9,14 @@ module	loot_matrix(
 					input logic [2:0] level_num,
 					input logic start_of_frame,
 					
-					output	logic [2:0] loot_type,
-					output	logic [2:0] caugth_loot_type,
+					// different loot types corosponding to different needs
+					output	logic [2:0] next_loot_type, // the next loot type to diplay on the screen
+					output 	logic [2:0] loot_type, // the current loot type displayed on screen (the one that the bitmap will output)
+					// this isn't comming out of the bitmap, because it is connected to several different sources with a mux
+					output	logic [2:0] caugth_loot_type, // the loot the claw collided with from two clk ago
 					// loot offset
 					output	logic	[10:0] offsetX_LSB,
-					output	logic	[10:0] offsetY_LSB,
-					output 	logic [7:0] total_amount
+					output	logic	[10:0] offsetY_LSB
  ) ;
 
 localparam  int MAZE_NUMBER_OF__X_BITS = 4;  // 2^4 = 16 / /the maze of the objects 
@@ -23,14 +25,16 @@ localparam  int MAZE_NUMBER_OF__Y_BITS = 3;  // 2^3 = 8
 //-----
 localparam  int MAZE_WIDTH_X = 1 << MAZE_NUMBER_OF__X_BITS ;
 localparam  int MAZE_HEIGHT_Y = 1 << MAZE_NUMBER_OF__Y_BITS ;
-localparam	[2:0] LOOT_AMOUNT_SIZE = 6;
+localparam	[3:0] LOOT_AMOUNT_SIZE = 3'd7;
 localparam	[2:0] LOOT_TYPE_SIZE = 3;
 
-parameter [2:0] TOTAL_LOOT_TYPES = 3'd3;
+localparam [2:0] TOTAL_LOOT_TYPES = 3'd5;
 
-localparam logic [2:0] AMOUNT_FIELD_SIZE = 3'd6;
+localparam logic [3:0] AMOUNT_FIELD_SIZE = 4'd7;
 parameter [(AMOUNT_FIELD_SIZE-1):0] INIT_GOLD_AMOUNT = 32;
-parameter [(AMOUNT_FIELD_SIZE-1):0] INIT_ROCK_AMOUNT = 32;
+parameter [(AMOUNT_FIELD_SIZE-1):0] INIT_ROCK_AMOUNT = 4;
+parameter [(AMOUNT_FIELD_SIZE-1):0] INIT_DIAMOND_AMOUNT = 0;
+parameter [(AMOUNT_FIELD_SIZE-1):0] INIT_GOBLET_AMOUNT = 0;
 
 
  logic [10:0] offsetX_MSB ;
@@ -54,9 +58,8 @@ random  #(.SIZE_BITS(MAZE_WIDTH_X)) random1(.clk(clk), .resetN(resetN), .rise(st
 
 logic [0:(MAZE_HEIGHT_Y-1)][0:(MAZE_WIDTH_X-1)] [(LOOT_TYPE_SIZE-1):0]  MazeBitMapMask ;  
 
-assign total_amount = loot_amounts[1] + loot_amounts[2];
 logic [8:0] total_amount_countr;
-assign total_amount_countr = loot_amounts_counter[1] + loot_amounts_counter[2];
+assign total_amount_countr = loot_amounts_counter[1] + loot_amounts_counter[2] + loot_amounts_counter[3];
 
 //
 // randomize a map and find a loot in it
@@ -76,6 +79,8 @@ always_comb begin
     loot_amounts[0] = 0; //defualt don't have amount, deduced by other
     loot_amounts[1] = INIT_GOLD_AMOUNT >> shift;
     loot_amounts[2] = INIT_ROCK_AMOUNT << shift;
+	 loot_amounts[3] = INIT_DIAMOND_AMOUNT + shift;
+	 loot_amounts[4] = INIT_GOBLET_AMOUNT + shift >> 1; // high value price 
 end
 
 
@@ -97,6 +102,7 @@ assign caugth_loot_type = (loot_collision) ? MazeBitMapMask[y_history[2]][x_hist
 always_ff@(posedge clk or negedge resetN) begin
 	if(!resetN) begin
 		loot_type <= 0;
+		next_loot_type <= 0 ;
 		MazeBitMapMask  <=  '{default:0} ;  //  clear map
 		loot_SM <= IDLE_ST;
 		random_row <= random_seed;
@@ -128,7 +134,7 @@ always_ff@(posedge clk or negedge resetN) begin
 			end
 		
 			START_LEVEL_ST: begin
-				loot_type <= 0;
+				next_loot_type <= 0;
 				MazeBitMapMask  <=  '{default:0} ;
 				random_row <= random_seed;
 				loot_amounts_counter <= loot_amounts;
@@ -138,6 +144,7 @@ always_ff@(posedge clk or negedge resetN) begin
 				row_ptr <= MAZE_WIDTH_X-1;
 				is_fill_missing <= 0;
 				is_collision <= 0;
+				loot_type <= 0;
 			end
 			
 
@@ -149,7 +156,7 @@ always_ff@(posedge clk or negedge resetN) begin
 					loot_SM <= LEVEL_ST;
 				// find the next possible loot and fill it
 				else begin
-					if (!random_row[row_ptr]) begin
+					if (random_row[row_ptr] && MazeBitMapMask[col_ptr][row_ptr] == 0) begin
 						if (loot_amounts_counter[loot_type_tmp] > 0) begin
 							MazeBitMapMask[col_ptr][row_ptr] <= loot_type_tmp;
 							loot_amounts_counter[loot_type_tmp] <= loot_amounts_counter[loot_type_tmp] - 1;
@@ -211,13 +218,13 @@ always_ff@(posedge clk or negedge resetN) begin
 				// collision is only up for one clk, but it happens one clk after the hit itself, so two clks after it was here
 				if (loot_collision) begin
 					MazeBitMapMask[y_history[2]][x_history[2]] <= 3'd0;  // clear entry 
-//					is_collision <= 1;
 				end
-//				if (start_of_frame)
-//					is_collision <= 0;
 				
 				if (InsideRectangle == 1'b1)
-					loot_type <= MazeBitMapMask[offsetY_MSB][offsetX_MSB];
+					next_loot_type <= MazeBitMapMask[offsetY_MSB][offsetX_MSB];
+				else
+					next_loot_type <= 1'b0;
+				loot_type <= next_loot_type;
 				if (start_level)
 					loot_SM <= START_LEVEL_ST;
 			end

@@ -27,6 +27,7 @@ module level_fsm (
 );
 
     parameter logic [3:0] def_move_speed = 4'd4;
+	 localparam logic [2:0] TOTAL_LOOT_TYPES = 3'd5;
 
     // collisions
     logic inter_claw_collision;
@@ -35,11 +36,27 @@ module level_fsm (
     assign inter_loot_collision = (claw_dr && loot_dr);
 
 
-    // loot properties matrix - rows are loot types, colmunes in order are score, move_speed
-    logic [0:2][0:1][3:0] loot_data ={
-        {4'd0, def_move_speed}, // default
-        {4'd10, 4'd4},          // gold
-        {4'd0,  4'd2}           // rock
+    // loot properties 
+    logic [0:TOTAL_LOOT_TYPES-1][6:0] loot_data_scores ={
+        7'd0, // default
+        7'd10, // gold
+        7'd0,  // rock
+		  7'd50, //diamond 
+		  7'd100 // goblet
+    };
+    logic [0:TOTAL_LOOT_TYPES-1][3:0] loot_data_speeds ={
+        def_move_speed, // default
+        4'd4, // gold
+		  4'd2, // rock
+		  4'd8, //diamond
+		  4'd1 // goblet
+    };
+	 logic [0:TOTAL_LOOT_TYPES-1][3:0] loot_data_sounds ={
+        4'd0, // default
+        4'd4, // gold - good loot
+		  4'd5, // rock - bad loot
+		  4'd4, //diamond - good loot
+		  4'd4 // goblet - good loot
     };
 
     localparam [1:0] score_loc = 4'd0;
@@ -79,9 +96,7 @@ module level_fsm (
                     score <= 0;
                     level_ended <= 1'b0;
                     is_loot_collision <= 1'b0;
-                    if (start_level) begin
-                        SMlevel <= SWING_ST;
-                    end
+						  SMlevel <= SWING_ST;
                 end
                 
             // the claw waits for the player, can't collide
@@ -89,8 +104,10 @@ module level_fsm (
                     collided_loot_type <= 0;
                     move_speed <= def_move_speed;
                     is_loot_collision <= 1'b0;
-                    
-                    if (timer_ended)
+						  
+						  if (start_level)
+								SMlevel <= IDLE_ST;
+                    else if (timer_ended)
                         SMlevel <= LEVEL_END_ST;
                     
                     else if (is_enter_pressed) begin
@@ -102,18 +119,20 @@ module level_fsm (
                     end
                 end
 
-            // the claws search for collision with a loot
+            // the claw search for collision with a loot
                 GOING_DOWN_ST: begin
                     move_speed <= def_move_speed;
-                    if (timer_ended)
+						  if (start_level)
+								SMlevel <= IDLE_ST;
+                    else if (timer_ended)
                         SMlevel <= LEVEL_END_ST;
                     else if (inter_claw_collision) begin
                         SMlevel <= HOLD_COLLISION_ST;
                         claw_collision <= 1'b1;
-								if(inter_loot_collision)
+								if(inter_loot_collision) begin
 									is_loot_collision <= 1'b1;
 									loot_collision <= 1'b1;
-                    
+								end
                     end                         
                 end
                 
@@ -122,21 +141,17 @@ module level_fsm (
                     if (is_loot_collision) begin
                         collided_loot_type <= loot_type;
                         is_loot_collision <= 1'b0;
+								play_sound    <= 1'b1;
                         
                         // --- SOUND TRIGGER FOR LOOT ---
                         // We check 'loot_type' directly here because 'collided_loot_type' is just being updated
-                        if (loot_type == 3'd1) begin // Assuming 1 is Gold
-                             sound_request <= 4'd4; // Sound 4: Catch Gold
-                             play_sound    <= 1'b1;
-                        end
-                        else if (loot_type == 3'd2) begin // Assuming 2 is Rock
-                             sound_request <= 4'd5; // Sound 5: Catch Stone
-                             play_sound    <= 1'b1;
-                        end
+							   sound_request <= loot_data_sounds[loot_type];
                     end
                     claw_collision <= 1'b0;
 						  loot_collision <= 1'b0;
-                    if (timer_ended)
+                    if (start_level)
+								SMlevel <= IDLE_ST;
+						  else if (timer_ended)
                         SMlevel <= LEVEL_END_ST;
                     else if (startOfFrame) begin
                         SMlevel <= GOING_BACK_ST;
@@ -145,11 +160,13 @@ module level_fsm (
 
             // the claw hit something and going back, either with or without something
                 GOING_BACK_ST: begin
-                    move_speed <= loot_data[collided_loot_type][move_speed_loc];
-                    if (timer_ended)
+                    move_speed <= loot_data_speeds[collided_loot_type];
+						  if (start_level)
+								SMlevel <= IDLE_ST;
+                    else if (timer_ended)
                         SMlevel <= LEVEL_END_ST;
                     else if (claw_returned) begin
-                        score <= score + loot_data[collided_loot_type][score_loc];
+                        score <= score + loot_data_scores[collided_loot_type];
                         SMlevel <= SWING_ST;
                     end
                 end
@@ -158,21 +175,19 @@ module level_fsm (
                 LEVEL_END_ST: begin
                     // Only trigger Win/Loss sound ONCE when entering this state
                     if (level_ended == 1'b0) begin 
-                        if (score >= goal) begin
+								play_sound  <= 1'b1;
+                        if (score >= goal)
                             sound_request <= 4'd1; // Sound 1: Win
-                            play_sound    <= 1'b1;
-                        end else begin
+                        else begin
                             sound_request <= 4'd2; // Sound 2: Loss
-                            play_sound    <= 1'b1;
                         end
                     end
 
                     level_ended <= 1'b1;
                     move_speed <= 4'd0;
                     
-                    // delete - multiple levels the game controller rules all
-                    if (is_enter_pressed && score >= goal)
-                        SMlevel <= IDLE_ST;
+                    if (start_level)
+								SMlevel <= IDLE_ST;
                 end
                 
                 default: begin

@@ -86,29 +86,7 @@ always_comb begin
 
         
         default: begin
-                
-            //************************************************************************************************** // Sheet Music      S O S                                                                          *
-            //**************************************************************************************************
-                 // First phrase
-                 frq[0]  =  do_H ;       len[0]  = 2  ;    
-                 frq[1]  =  do_H ;       len[1]  = 2  ;    
-                 frq[2]  =  do_H ;       len[2]  = 2  ;   
-                  
-                 frq[3]  =  silence ;    len[3]  = 3  ;
-                  
-                 frq[4]  =  do_H ;       len[4]  = 4  ;   
-                 frq[5]  =  silence ;    len[5]  = 1  ;
-                 frq[6]  =  do_H ;       len[6]  = 4  ;   
-                 frq[7]  =  silence ;    len[7]  = 1  ;
-                 frq[8]  =  do_H ;       len[8]  = 4  ;    
-                  
-                 frq[9]  =  silence ;    len[9]  = 3  ;
-                  
-                 frq[10]  =  do_H ;      len[10]  = 2  ;    
-                 frq[11]  =  do_H ;      len[11]  = 2  ;    
-                 frq[12] =  do_H ;       len[12]  = 2  ;    
-
-                 frq[13] = do_H ;        len[13] = 0 ;    // length = 0 means end of melod
+                 frq[0] = silence ;        len[0] = 0 ;    // length = 0 means end of melod
     
       end
    endcase

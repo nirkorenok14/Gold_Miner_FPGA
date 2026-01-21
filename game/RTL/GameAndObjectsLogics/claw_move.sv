@@ -22,6 +22,7 @@ parameter logic [2:0] SHIFT_RADIUS_LINEAR = 3'd3;
 // how many frames the claw waits before movement - 1 for simulation mode
 parameter logic [3:0] wait_time = 1;
 
+localparam logic [3:0] DEFAULT_SPEED = 4'd4;
 
 typedef enum logic [3:0] {IDLE_ST,         	// initial state
 				 SWING_MOVE_ST, 		// moving in swings no collision 
@@ -44,7 +45,7 @@ logic is_right_quarter; //right to left
 logic signed [1:0] alpha_speed;
 logic [3:0] time_counter;
 logic down_dir; // up or down direcation (1 - down, 0 - up)
-logic signed [8:0] line_length; //how long did we go down from start location
+logic signed [10:0] line_length; //how long did we go down from start location
 logic [3:0] init_speed; 
  
  //---------
@@ -158,9 +159,9 @@ begin : fsm_move_proc
 			
 			COLLISION_ST: begin
 				case ({init_speed, move_speed})
-					{4'd4, 4'd2}: line_length <= line_length << 1; // Speed halved -> length doubles
-					{4'd4, 4'd1}: line_length <= line_length << 2; // Speed /4 -> length x4
-					{4'd4, 4'd8}: line_length <= line_length >> 1; // Speed x2 -> length /2
+					{DEFAULT_SPEED, 4'd2}: line_length <= line_length << 1; // Speed halved -> length doubles
+					{DEFAULT_SPEED, 4'd1}: line_length <= line_length << 2; // Speed /4 -> length x4
+					{DEFAULT_SPEED, 4'd8}: line_length <= (line_length >> 1) | 9'd1; // Speed x2 -> length /2 + hitting something close to the start
 					default:      line_length <= line_length;
 				endcase
 				down_dir <= 0;

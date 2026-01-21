@@ -6,7 +6,7 @@ SM_Maestro.s_playNote 0 0 1 1
 SM_Maestro.s_gap 0 1 0 1 
 SM_Maestro.s_ended 1 0 0 1 
 
-State Machine - |TOP_GOLD_MINER_GAME|loot_display_top:inst14|loot_matrix:inst|loot_SM
+State Machine - |TOP_GOLD_MINER_GAME|loot_display_top:inst12|loot_matrix:inst|loot_SM
 Name loot_SM.LEVEL_ST loot_SM.FILL_MISSING_ST loot_SM.NEXT_COL_ST loot_SM.MAP_GEN_ST loot_SM.START_LEVEL_ST loot_SM.IDLE_ST 
 loot_SM.IDLE_ST 0 0 0 0 0 0 
 loot_SM.START_LEVEL_ST 0 0 0 0 1 1 
@@ -14,6 +14,13 @@ loot_SM.MAP_GEN_ST 0 0 0 1 0 1
 loot_SM.NEXT_COL_ST 0 0 1 0 0 1 
 loot_SM.FILL_MISSING_ST 0 1 0 0 0 1 
 loot_SM.LEVEL_ST 1 0 0 0 0 1 
+
+State Machine - |TOP_GOLD_MINER_GAME|game_controller:inst34|game_SM
+Name game_SM.LEVEL_END_ST game_SM.PLAY_LEVEL_ST game_SM.START_LEVEL_ST game_SM.IDLE_ST 
+game_SM.IDLE_ST 0 0 0 0 
+game_SM.START_LEVEL_ST 0 0 1 1 
+game_SM.PLAY_LEVEL_ST 0 1 0 1 
+game_SM.LEVEL_END_ST 1 0 0 1 
 
 State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst11|SMlevel
 Name SMlevel.LEVEL_END_ST SMlevel.GOING_BACK_ST SMlevel.HOLD_COLLISION_ST SMlevel.GOING_DOWN_ST SMlevel.SWING_ST SMlevel.IDLE_ST 
@@ -24,14 +31,14 @@ SMlevel.HOLD_COLLISION_ST 0 0 1 0 0 1
 SMlevel.GOING_BACK_ST 0 1 0 0 0 1 
 SMlevel.LEVEL_END_ST 1 0 0 0 0 1 
 
-State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|prev_SM
+State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst22|claw_move:inst|prev_SM
 Name prev_SM.SWING_MOVE_ST prev_SM.IDLE_ST prev_SM.COLLISION_ST prev_SM.LINEAR_MOVE_ST 
 prev_SM.IDLE_ST 0 0 0 0 
 prev_SM.SWING_MOVE_ST 1 1 0 0 
 prev_SM.LINEAR_MOVE_ST 0 1 0 1 
 prev_SM.COLLISION_ST 0 1 1 0 
 
-State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst32|claw_move:inst|SM_Motion
+State Machine - |TOP_GOLD_MINER_GAME|Claw_Block_Top:inst22|claw_move:inst|SM_Motion
 Name SM_Motion.LINEAR_MOVE_ST SM_Motion.WAIT_ST SM_Motion.SWING_MOVE_ST SM_Motion.IDLE_ST SM_Motion.COLLISION_ST 
 SM_Motion.IDLE_ST 0 0 0 0 0 
 SM_Motion.SWING_MOVE_ST 0 0 1 1 0 

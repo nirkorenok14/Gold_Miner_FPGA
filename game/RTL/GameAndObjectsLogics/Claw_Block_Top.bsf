@@ -1,0 +1,153 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 304 208)
+	(text "Claw_Block_Top" (rect 5 0 102 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 171 24 188)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "pixelX[10..0]" (rect 0 0 75 19)(font "Intel Clear" (font_size 8)))
+		(text "pixelX[10..0]" (rect 21 27 96 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "pixelY[10..0]" (rect 0 0 75 19)(font "Intel Clear" (font_size 8)))
+		(text "pixelY[10..0]" (rect 21 43 96 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk" (rect 0 0 16 19)(font "Intel Clear" (font_size 8)))
+		(text "clk" (rect 21 59 37 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "resetN" (rect 0 0 38 19)(font "Intel Clear" (font_size 8)))
+		(text "resetN" (rect 21 75 59 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "startOfFrame" (rect 0 0 79 19)(font "Intel Clear" (font_size 8)))
+		(text "startOfFrame" (rect 21 91 100 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "collision " (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "collision " (rect 21 107 71 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "is_enter_pressed" (rect 0 0 101 19)(font "Intel Clear" (font_size 8)))
+		(text "is_enter_pressed" (rect 21 123 122 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "move_speed[3..0]" (rect 0 0 107 19)(font "Intel Clear" (font_size 8)))
+		(text "move_speed[3..0]" (rect 21 139 128 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "start_level" (rect 0 0 62 19)(font "Intel Clear" (font_size 8)))
+		(text "start_level" (rect 21 155 83 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 288 32)
+		(output)
+		(text "claw_dr" (rect 0 0 46 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_dr" (rect 221 27 267 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 32)(pt 272 32))
+	)
+	(port
+		(pt 288 48)
+		(output)
+		(text "claw_RGB[7..0]" (rect 0 0 89 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_RGB[7..0]" (rect 178 43 267 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 48)(pt 272 48)(line_width 3))
+	)
+	(port
+		(pt 288 64)
+		(output)
+		(text "claw_returned" (rect 0 0 83 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_returned" (rect 184 59 267 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 64)(pt 272 64))
+	)
+	(port
+		(pt 288 80)
+		(output)
+		(text "claw_top_leftX[10..0]" (rect 0 0 127 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_top_leftX[10..0]" (rect 140 75 267 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 80)(pt 272 80)(line_width 3))
+	)
+	(port
+		(pt 288 96)
+		(output)
+		(text "claw_top_leftY[10..0]" (rect 0 0 127 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_top_leftY[10..0]" (rect 140 91 267 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 96)(pt 272 96)(line_width 3))
+	)
+	(port
+		(pt 288 112)
+		(output)
+		(text "claw_line_dr" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_line_dr" (rect 193 107 267 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 112)(pt 272 112))
+	)
+	(port
+		(pt 288 128)
+		(output)
+		(text "claw_line_RGB[7..0]" (rect 0 0 118 19)(font "Intel Clear" (font_size 8)))
+		(text "claw_line_RGB[7..0]" (rect 149 123 267 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 288 128)(pt 272 128)(line_width 3))
+	)
+	(parameter
+		"initial_x"
+		"280"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"initial_y"
+		"70"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 272 176))
+	)
+	(annotation_block (parameter)(rect 304 -64 404 16))
+)

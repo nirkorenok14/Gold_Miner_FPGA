@@ -1,0 +1,51 @@
+module bin2bcd (
+    input  logic [13:0] binary_in,  // Input binary number (0 to 9999)
+    
+    output logic [3:0]  thousands,  // The thousands digit
+    output logic [3:0]  hundreds,   // The hundreds digit
+    output logic [3:0]  tens,       // The tens digit
+    output logic [3:0]  units       // The units digit
+);
+
+    always_comb begin
+        // Internal register for the algorithm
+        // 14 bits for input + 16 bits for BCD (4 digits * 4 bits) = 30 bits
+        logic [29:0] shift_reg; 
+        int i;
+        
+        // Step 1: Initialize with binary value in the lower bits
+        shift_reg = {16'd0, binary_in}; 
+        
+        // Step 2: Double Dabble Algorithm Loop
+        // Iterate 14 times (once for each input bit)
+        for (i = 0; i < 14; i = i + 1) begin
+            // Check if any BCD nibble is >= 5, if so add 3
+            
+            // Units (Bits 17-14)
+            if (shift_reg[17:14] >= 5) 
+                shift_reg[17:14] = shift_reg[17:14] + 3;
+                
+            // Tens (Bits 21-18)
+            if (shift_reg[21:18] >= 5) 
+                shift_reg[21:18] = shift_reg[21:18] + 3;
+                
+            // Hundreds (Bits 25-22)
+            if (shift_reg[25:22] >= 5) 
+                shift_reg[25:22] = shift_reg[25:22] + 3;
+                
+            // Thousands (Bits 29-26)
+            if (shift_reg[29:26] >= 5) 
+                shift_reg[29:26] = shift_reg[29:26] + 3;
+            
+            // Shift entire register left by 1
+            shift_reg = shift_reg << 1;
+        end
+        
+        // Step 3: Assign outputs
+        thousands = shift_reg[29:26];
+        hundreds  = shift_reg[25:22];
+        tens      = shift_reg[21:18];
+        units     = shift_reg[17:14];
+    end
+
+endmodule
