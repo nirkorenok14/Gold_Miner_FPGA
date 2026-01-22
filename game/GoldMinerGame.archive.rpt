@@ -1,5 +1,5 @@
 Archive Project report for GoldMinerGame
-Wed Jan 21 23:07:53 2026
+Thu Jan 22 05:19:05 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Wed Jan 21 23:07:53 2026 ;
+; Archive Project Status ; Successful - Thu Jan 22 05:19:05 2026 ;
 ; Revision Name          ; GoldMinerGame                         ;
 ; Top-level Entity Name  ; TOP_GOLD_MINER_GAME                   ;
 ; Family                 ; Cyclone V                             ;
@@ -53,15 +53,15 @@ Info: Archive will store files relative to the closest common parent directory
 Info (13213): Using common directory C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/game/
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_full_game.qar'
+Info: Generated archive 'C:/Users/nirko/Documents/Degree/Electrical_Eng_Lab_1/Gold_Miner_FPGA/QARs/gold_miner_final_game.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'GoldMinerGame.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4839 megabytes
-    Info: Processing ended: Wed Jan 21 23:07:53 2026
-    Info: Elapsed time: 00:00:03
+    Info: Processing ended: Thu Jan 22 05:19:05 2026
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:03
 
 
@@ -126,7 +126,6 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; rtl/vga/bitmaps/gm_background.mif                          ;
 ; RTL/VGA/Bitmaps/LootBitMaps.sv                             ;
 ; RTL/VGA/Bitmaps/MinerBitMap.sv                             ;
-; RTL/VGA/Bitmaps/NumbersBitMap.sv                           ;
 ; RTL/VGA/line_object.sv                                     ;
 ; RTL/VGA/loot_display_top.bdf                               ;
 ; RTL/VGA/loot_mux.sv                                        ;

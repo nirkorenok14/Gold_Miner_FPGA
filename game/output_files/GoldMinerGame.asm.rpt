@@ -1,5 +1,5 @@
 Assembler report for GoldMinerGame
-Wed Jan 21 22:56:02 2026
+Thu Jan 22 05:15:18 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Jan 21 22:56:02 2026 ;
+; Assembler Status      ; Successful - Thu Jan 22 05:15:18 2026 ;
 ; Revision Name         ; GoldMinerGame                         ;
 ; Top-level Entity Name ; TOP_GOLD_MINER_GAME                   ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ agreement for further details.
 +----------------+-------------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                           ;
 +----------------+-------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x04CF7629                                                                                                        ;
-; Checksum       ; 0x04CF7629                                                                                                        ;
+; JTAG usercode  ; 0x04CF5B5B                                                                                                        ;
+; Checksum       ; 0x04CF5B5B                                                                                                        ;
 +----------------+-------------------------------------------------------------------------------------------------------------------+
 
 
@@ -78,12 +78,12 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Jan 21 22:55:41 2026
+    Info: Processing started: Thu Jan 22 05:14:57 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off GoldMinerGame -c GoldMinerGame
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4921 megabytes
-    Info: Processing ended: Wed Jan 21 22:56:02 2026
+    Info: Peak virtual memory: 4923 megabytes
+    Info: Processing ended: Thu Jan 22 05:15:18 2026
     Info: Elapsed time: 00:00:21
     Info: Total CPU time (on all processors): 00:00:21
 

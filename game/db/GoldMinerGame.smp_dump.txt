@@ -15,12 +15,13 @@ loot_SM.NEXT_COL_ST 0 0 1 0 0 1
 loot_SM.FILL_MISSING_ST 0 1 0 0 0 1 
 loot_SM.LEVEL_ST 1 0 0 0 0 1 
 
-State Machine - |TOP_GOLD_MINER_GAME|game_controller:inst34|game_SM
-Name game_SM.LEVEL_END_ST game_SM.PLAY_LEVEL_ST game_SM.START_LEVEL_ST game_SM.IDLE_ST 
-game_SM.IDLE_ST 0 0 0 0 
-game_SM.START_LEVEL_ST 0 0 1 1 
-game_SM.PLAY_LEVEL_ST 0 1 0 1 
-game_SM.LEVEL_END_ST 1 0 0 1 
+State Machine - |TOP_GOLD_MINER_GAME|game_controller:inst1|game_SM
+Name game_SM.PLAY_LEVEL_ST game_SM.START_LEVEL_ST game_SM.INIT_NEW_LEVEL_ST game_SM.IDLE_ST game_SM.LEVEL_END_ST 
+game_SM.IDLE_ST 0 0 0 0 0 
+game_SM.INIT_NEW_LEVEL_ST 0 0 1 1 0 
+game_SM.START_LEVEL_ST 0 1 0 1 0 
+game_SM.PLAY_LEVEL_ST 1 0 0 1 0 
+game_SM.LEVEL_END_ST 0 0 0 1 1 
 
 State Machine - |TOP_GOLD_MINER_GAME|level_fsm:inst11|SMlevel
 Name SMlevel.LEVEL_END_ST SMlevel.GOING_BACK_ST SMlevel.HOLD_COLLISION_ST SMlevel.GOING_DOWN_ST SMlevel.SWING_ST SMlevel.IDLE_ST 

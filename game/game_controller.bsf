@@ -101,17 +101,12 @@ agreement for further details.
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
 		"INIT_GOAL"
-		"00000010100000"
+		"00000011001000"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
 		"INIT_TIME"
-		"00101000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"LEVEL_TIME_DT"
-		"101"
+		"00111100"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing

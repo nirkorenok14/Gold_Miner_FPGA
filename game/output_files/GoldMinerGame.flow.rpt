@@ -1,5 +1,5 @@
 Flow report for GoldMinerGame
-Wed Jan 21 22:56:25 2026
+Thu Jan 22 05:15:41 2026
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Jan 21 22:56:02 2026       ;
+; Flow Status                     ; Successful - Thu Jan 22 05:15:18 2026       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; GoldMinerGame                               ;
 ; Top-level Entity Name           ; TOP_GOLD_MINER_GAME                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 3,879 / 41,910 ( 9 % )                      ;
-; Total registers                 ; 1211                                        ;
-; Total pins                      ; 63 / 499 ( 13 % )                           ;
+; Logic utilization (in ALMs)     ; 3,876 / 41,910 ( 9 % )                      ;
+; Total registers                 ; 1225                                        ;
+; Total pins                      ; 53 / 499 ( 11 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,457,600 / 5,662,720 ( 43 % )              ;
 ; Total DSP Blocks                ; 10 / 112 ( 9 % )                            ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/21/2026 22:50:31 ;
+; Start date & time ; 01/22/2026 05:09:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; GoldMinerGame       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +--------------------------------------------------+----------------------------------------+---------------+---------------------+------------+
 ; Assignment Name                                  ; Value                                  ; Default Value ; Entity Name         ; Section Id ;
 +--------------------------------------------------+----------------------------------------+---------------+---------------------+------------+
-; COMPILER_SIGNATURE_ID                            ; 79602623454999.176902863151236         ; --            ; --                  ; --         ;
+; COMPILER_SIGNATURE_ID                            ; 79602623454999.176905136400008         ; --            ; --                  ; --         ;
 ; ENABLE_SIGNALTAP                                 ; On                                     ; --            ; --                  ; --         ;
 ; FITTER_EFFORT                                    ; Fast Fit                               ; Auto Fit      ; --                  ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                           ; 85                                     ; --            ; --                  ; --         ;
@@ -113,11 +113,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:55     ; 1.0                     ; 4993 MB             ; 00:02:19                           ;
-; Fitter                    ; 00:03:08     ; 1.5                     ; 7989 MB             ; 00:21:14                           ;
-; Assembler                 ; 00:00:21     ; 1.0                     ; 4921 MB             ; 00:00:21                           ;
-; TimeQuest Timing Analyzer ; 00:00:22     ; 4.5                     ; 5441 MB             ; 00:01:18                           ;
-; Total                     ; 00:05:46     ; --                      ; --                  ; 00:25:12                           ;
+; Analysis & Synthesis      ; 00:02:04     ; 1.0                     ; 5007 MB             ; 00:02:38                           ;
+; Fitter                    ; 00:03:21     ; 1.5                     ; 8012 MB             ; 00:22:51                           ;
+; Assembler                 ; 00:00:21     ; 1.0                     ; 4923 MB             ; 00:00:21                           ;
+; TimeQuest Timing Analyzer ; 00:00:22     ; 4.6                     ; 5442 MB             ; 00:01:19                           ;
+; Total                     ; 00:06:08     ; --                      ; --                  ; 00:27:09                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

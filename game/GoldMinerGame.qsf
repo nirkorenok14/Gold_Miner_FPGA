@@ -254,7 +254,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/claw_mov
 set_global_assignment -name BDF_FILE RTL/TOP_GOLD_MINER_GAME.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/level_fsm.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/digit_object_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE RTL/VGA/Bitmaps/NumbersBitMap.sv
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/GameAndObjectsLogics/game_controller.sv
 set_global_assignment -name BDF_FILE RTL/Timer/Timer_Block.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE RTL/Timer/check_timer_end.sv

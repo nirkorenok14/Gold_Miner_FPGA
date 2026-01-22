@@ -1357,7 +1357,7 @@ agreement for further details.
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
 		"INIT_DIAMOND_AMOUNT"
-		"0000000"
+		"0000001"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
@@ -1378,7 +1378,7 @@ agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 240 192))
 	)
-	(annotation_block (parameter)(rect 1240 144 1528 280))
+	(annotation_block (parameter)(rect 1240 144 1524 277))
 )
 (connector
 	(text "resetN" (rect 634 360 664 377)(font "Intel Clear" ))

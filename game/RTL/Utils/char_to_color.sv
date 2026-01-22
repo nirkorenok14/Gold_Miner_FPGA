@@ -21,8 +21,8 @@ logic [7:0] pixel_row;
         case (char_code)
             CHAR_0: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h66; 3: pixel_row = 8'h66; 4: pixel_row = 8'h66; 5: pixel_row = 8'h66; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
 				CHAR_1: begin case(row_idx) 0: pixel_row = 8'h18; 1: pixel_row = 8'h38; 2: pixel_row = 8'h18; 3: pixel_row = 8'h18; 4: pixel_row = 8'h18; 5: pixel_row = 8'h18; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
-				CHAR_2: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h66; 2: pixel_row = 8'h0C; 3: pixel_row = 8'h18; 4: pixel_row = 8'h30; 5: pixel_row = 8'h60; 6: pixel_row = 8'h7E; default: pixel_row = 0; endcase end
-				CHAR_3: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h66; 2: pixel_row = 8'h0C; 3: pixel_row = 8'h1C; 4: pixel_row = 8'h0C; 5: pixel_row = 8'h66; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
+				CHAR_2: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h06; 3: pixel_row = 8'h18; 4: pixel_row = 8'h30; 5: pixel_row = 8'h60; 6: pixel_row = 8'h7E; default: pixel_row = 0; endcase end
+				CHAR_3: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h06; 3: pixel_row = 8'h1C; 4: pixel_row = 8'h0C; 5: pixel_row = 8'h66; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
 				CHAR_4: begin case(row_idx) 0: pixel_row = 8'h0C; 1: pixel_row = 8'h1C; 2: pixel_row = 8'h3C; 3: pixel_row = 8'h6C; 4: pixel_row = 8'h7E; 5: pixel_row = 8'h0C; 6: pixel_row = 8'h0C; default: pixel_row = 0; endcase end
 				CHAR_5: begin case(row_idx) 0: pixel_row = 8'h7E; 1: pixel_row = 8'h60; 2: pixel_row = 8'h7C; 3: pixel_row = 8'h06; 4: pixel_row = 8'h06; 5: pixel_row = 8'h66; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
 				CHAR_6: begin case(row_idx) 0: pixel_row = 8'h3C; 1: pixel_row = 8'h66; 2: pixel_row = 8'h60; 3: pixel_row = 8'h7C; 4: pixel_row = 8'h66; 5: pixel_row = 8'h66; 6: pixel_row = 8'h3C; default: pixel_row = 0; endcase end
