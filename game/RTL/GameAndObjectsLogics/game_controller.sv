@@ -1,98 +1,127 @@
-// game controller dudy Febriary 2020
-// (c) Technion IIT, Department of Electrical Engineering 2021 
-//updated --Eyal Lev 2021
-
-
 module	game_controller	(	
 			input	logic	clk,
 			input	logic	resetN,
-			input	logic	startOfFrame,  // short pulse every start of frame 30Hz 
-			input	logic	drawing_request_smiley,
-			input	logic	drawing_request_boarders,
-
-//---------------------#1-add input drawing request of number/box
-		
-		
-			input logic drawing_request_number,
-
-//---------------------#1-end input drawing request of number/box
-
-
-// drawing_request_smiley   -->  smiley
-// drawing_request_boarders -->  brackets
-// drawing_request_number   -->  number/box 
-
-//---------------------#2-add  drawing request of hart
-
-			input	logic	drawing_request_hart,
-
-//---------------------#2-end drawing request of hart		
-
+			// what is the current score, used to decide if the player managed to pass the level
+			input logic [13:0] score,
+			// used to start the game and move next level
+			input logic next_level,
+			// skip level externally
+			input logic skip_level,
+			// tell the level had ended
+			input logic level_ended,
 			
-			output logic collision, // active in case of collision between two objects
-			
-			output logic SingleHitPulse, // critical code, generating A single pulse in a frame 
-			
-			
-
-//---------------------#3-add collision  smiley and hart   -------------------------------------
-
-			output logic collision_Smiley_Hart // active in case of collision between Smiley and hart
-
-//---------------------#3-end collision  smiley and hart	--------------------------------------
+			// gives a pulse to all units that all the units to skip to next level
+			output logic start_level,
+			// what level we are now
+			output logic [2:0] level_num,
+			// the goal the player needs to get
+			output logic [13:0] goal,
+			// init the timer for every level
+			output logic [7:0] timer_time
 			
 );
 
-logic flag ; // a semaphore to set the output only once per frame regardless of number of collisions 
-logic collision_smiley_number; // collision between Smiley and number - is not output
+parameter logic [2:0] MAX_LEVEL = 3'd5;
+// going down by powers of two each level
+parameter logic [13:0] INIT_GOAL = 13'd200;
+// going up with each level
+parameter logic [7:0] INIT_TIME = 8'd60;
+// how much it is going up
+localparam logic [2:0] LEVEL_TIME_DT = 3'd5;
+localparam logic [3:0] SCORE_DT = 4'd10;
 
-//assign collision = (drawing_request_smiley && drawing_request_boarders);// any collision --> comment after updating with #4 or #5 
+// state machine and parameters declaration 
+enum logic [2:0] {IDLE_ST, INIT_NEW_LEVEL_ST, START_LEVEL_ST, PLAY_LEVEL_ST, LEVEL_END_ST} game_SM;
 
-//---------------------#4-update  collision  conditions - add collision between smiley and number   ----------------------------
+logic [2:0] clk_counter;
+// --- Edge Detection Logic ---
+logic next_level_d, skip_level_d;
+logic next_level_pulse, skip_level_pulse;
 
-//assign collision = (drawing_request_smiley && drawing_request_boarders) | collision_smiley_number; // any collision
-assign collision_smiley_number = (drawing_request_smiley && drawing_request_number);
+always_ff @(posedge clk or negedge resetN) begin
+    if (!resetN) begin
+        next_level_d <= 1'b0;
+        skip_level_d <= 1'b0;
+    end else begin
+        next_level_d <= next_level;
+        skip_level_d <= skip_level;
+    end
+end
 
-//---------------------#4-end update  collision  conditions - add collision between smiley and number	-------------------------
-	
-					
-
-//---------------------#5-update  collision  conditions - add collision between smiley and hart  ---------------------------------
-
-assign collision = (drawing_request_smiley && drawing_request_boarders) | collision_smiley_number | collision_Smiley_Hart; 
-
-//---------------------#5-end update  collision  conditions	- add collision between smiley and hart	-----------------------------
-	
-
-//-------------------------- #6-add colision between Smiley and hart-----------------
-
-assign collision_Smiley_Hart = ( drawing_request_smiley && drawing_request_hart ) ;
-
-//---------------------------#6-end colision betweenand Smiley and hart-----------------
-
+// These pulses are high for only ONE clock cycle per press
+assign next_level_pulse = (next_level == 1'b1) && (next_level_d == 1'b0);
+assign skip_level_pulse = (skip_level == 1'b1) && (skip_level_d == 1'b0);
 
 
 always_ff@(posedge clk or negedge resetN)
 begin
-	if(!resetN)
-	begin 
-		flag	<= 1'b0;
-		SingleHitPulse <= 1'b0 ; 
-		
+	if(!resetN) begin 
+		start_level <= 0;
+		level_num <= 2'd0;
+		goal <= 0;
+		game_SM <= IDLE_ST;
+		timer_time <= 0;
+		clk_counter <= 0;
 	end 
-	else begin 
 	
-			SingleHitPulse <= 1'b0 ; // default 
-			if(startOfFrame) 
-				flag <= 1'b0 ; // reset for next time 
-				
-//	----#7 - change the collision condition below to collision_smiley_number ---------
-
-if ( collision_smiley_number && (flag == 1'b0)) begin 
-			flag	<= 1'b1; // to enter only once 
-			SingleHitPulse <= 1'b1 ; 
-		end ; 
- 
+	else begin
+		case (game_SM)
+		
+		
+			// waits to start the game
+			IDLE_ST: begin
+				start_level <= 0;
+				level_num <= 2'd0;
+				timer_time <= 0;
+				goal <= 0;
+				clk_counter <= 0;
+				if (next_level_pulse) begin
+					game_SM <= INIT_NEW_LEVEL_ST;
+				end
+			end
+			
+			INIT_NEW_LEVEL_ST: begin
+				level_num <= level_num + 1;
+				// max time is 5*5 so 60 - 25 = 35 for the last level - timer max is digit
+				timer_time <= INIT_TIME - LEVEL_TIME_DT * level_num;
+				goal <= INIT_GOAL + SCORE_DT * level_num;
+				game_SM <= START_LEVEL_ST;
+				clk_counter <= 3'd2; //needs to wait one more clk for the level to change state - 2 for the safe side
+			end
+			
+			// sends a pulse that the level started
+			START_LEVEL_ST: begin
+				start_level <= 1;
+				//needs to wait one more clk for the level to change state
+				clk_counter <= clk_counter - 1;
+				if (clk_counter == 0)
+					game_SM <= PLAY_LEVEL_ST;
+			end
+			
+			// wait untill something happens during the level - finished or skip to next one
+			PLAY_LEVEL_ST: begin
+				start_level <= 0;
+				if (skip_level_pulse) begin
+					game_SM <= INIT_NEW_LEVEL_ST;
+				end
+				else if (level_ended)
+					game_SM <= LEVEL_END_ST;
+			end
+			
+			// check if the player winned the level or the game had finished
+			LEVEL_END_ST: begin
+				// move to the next level if the player is allowed and wants
+				if (score >= goal && level_num < MAX_LEVEL) begin
+				// waits for the player
+					if(next_level_pulse)
+						game_SM <= INIT_NEW_LEVEL_ST;
+				end
+				// if there is no other level or the player lose (didn't achived the score)
+				else
+					game_SM <= IDLE_ST;
+			end
+		
+		endcase
 	end 
 end
 
